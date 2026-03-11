@@ -1,0 +1,460 @@
+/* =============================================================
+   responsive.css – Imkerverein Herdecke-Ende e.V.
+   Responsive Breakpoints: Tablet (≤1024px) und Mobile (≤768px)
+   ============================================================= */
+
+/* ================================================================
+   TABLET (≤ 1024px)
+   ================================================================ */
+
+@media (max-width: 1024px) {
+
+  :root {
+    --nav-height: 72px;
+  }
+
+  /* Navigation */
+  .site-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  /* Logo Text kürzen */
+  .site-logo__sub {
+    display: none;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  /* Feature Cards */
+  .feature-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Karten-Grids */
+  .cards-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  /* Timeline */
+  .timeline::before {
+    left: 32px;
+  }
+
+  .timeline-item {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    grid-column: 1;
+    grid-row: 1;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-spacer,
+  .timeline-item:nth-child(even) .timeline-spacer {
+    display: none;
+  }
+
+  /* Infos Split */
+  .info-split {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .info-split--reverse .info-split__image {
+    order: 0;
+  }
+
+  .info-split--reverse .info-split__content {
+    order: 0;
+  }
+
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Kontakt */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .contact-info {
+    position: static;
+  }
+
+  /* Treff Highlight */
+  .treff-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .treff-highlight__action {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  /* Imkertreff-Box */
+  .imkertreff-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .imkertreff-box__icon {
+    font-size: 3rem;
+  }
+
+  /* Antrag Box */
+  .antrag-box {
+    grid-template-columns: 1fr;
+  }
+
+  /* News Grid */
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Vorteile Grid */
+  .vorteile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Verband Box */
+  .verband-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* ================================================================
+   MOBILE (≤ 768px)
+   ================================================================ */
+
+@media (max-width: 768px) {
+
+  :root {
+    --nav-height:   64px;
+    --space-24:     3.5rem;
+    --space-20:     3rem;
+  }
+
+  /* Basis */
+  .container {
+    padding: 0 var(--space-5);
+  }
+
+  h1 { font-size: var(--fs-3xl); }
+  h2 { font-size: var(--fs-2xl); }
+  h3 { font-size: var(--fs-xl); }
+
+  .section-title {
+    font-size: var(--fs-2xl);
+  }
+
+  /* Logo */
+  .site-logo__text {
+    display: none;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero__title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .hero__sub {
+    font-size: var(--fs-base);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero--subpage {
+    min-height: 35vh;
+  }
+
+  /* Feature Cards */
+  .feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .stat-item__number {
+    font-size: 2.25rem;
+  }
+
+  /* Karten */
+  .cards-grid,
+  .cards-grid--3,
+  .cards-grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* News */
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Galerie */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* Termine */
+  .termin-item {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .termin-badge {
+    grid-column: 1 / -1;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-top: var(--space-2);
+  }
+
+  /* Timeline */
+  .timeline-content {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .timeline-year {
+    font-size: var(--fs-2xl);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  /* Treff Highlight */
+  .treff-highlight {
+    padding: var(--space-8);
+  }
+
+  .treff-highlight__action {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .treff-highlight__action .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Imkertreff Box */
+  .imkertreff-box {
+    padding: var(--space-8);
+  }
+
+  /* Kontakt */
+  .termin-info__meta {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  /* Profil Cards */
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Antrag Box */
+  .antrag-box {
+    padding: var(--space-8);
+  }
+
+  /* Legal */
+  .legal-content {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* Lightbox Nav */
+  .lightbox__nav--prev {
+    left: var(--space-3);
+  }
+
+  .lightbox__nav--next {
+    right: var(--space-3);
+  }
+
+  /* Verband Box */
+  .verband-box {
+    padding: var(--space-8);
+  }
+}
+
+/* ================================================================
+   KLEINE MOBILGERÄTE (≤ 480px)
+   ================================================================ */
+
+@media (max-width: 480px) {
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .mobile-nav__link {
+    font-size: var(--fs-xl);
+  }
+
+  .termin-item {
+    grid-template-columns: 1fr;
+  }
+
+  .termin-date {
+    flex-direction: row;
+    gap: var(--space-3);
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    justify-content: flex-start;
+  }
+
+  .termin-badge {
+    grid-column: 1;
+  }
+
+  .treff-highlight__title {
+    font-size: var(--fs-xl);
+  }
+}
+
+/* ================================================================
+   FOKUS & ACCESSIBILITY
+   ================================================================ */
+
+/* Sichtbare Fokus-Zustände für alle interaktiven Elemente */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-honey);
+  outline-offset: 3px;
+}
+
+/* Hoher Kontrast Modus */
+@media (prefers-contrast: high) {
+  :root {
+    --color-honey: #A86B00;
+    --color-honey-dark: #8B5500;
+    --color-border: #8B7355;
+    --color-text-muted: #3D2B10;
+    --color-text-light: #5C3D1E;
+  }
+}
+
+/* Animationen deaktivieren wenn bevorzugt */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Print */
+@media print {
+  .site-header,
+  .hamburger,
+  .mobile-nav,
+  .hero__actions,
+  .site-footer,
+  .lightbox,
+  .filter-btn {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .hero__content {
+    padding: 2rem 0;
+  }
+
+  .hero__title {
+    color: #000;
+  }
+}
