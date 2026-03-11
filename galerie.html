@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie – Imkerverein Herdecke-Ende e.V.</title>
+  <meta name="description" content="Bildergalerie des Imkervereins Herdecke-Ende: Bienen, Waben, Honigernte, Vereinsleben und Natur aus der Region Herdecke.">
+  <link rel="canonical" href="galerie.html">
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Imkerverein Herdecke-Ende e.V. – Zur Startseite">
+        <span class="site-logo__icon" aria-hidden="true">🐝</span>
+        <span class="site-logo__text">
+          <span class="site-logo__name">Imkerverein Herdecke-Ende</span>
+          <span class="site-logo__sub">e.V. · Gegründet 1926</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <ul class="nav-list" role="list">
+          <li class="nav-list__item"><a href="index.html" class="nav-list__link">Startseite</a></li>
+          <li class="nav-list__item"><a href="ueber-uns.html" class="nav-list__link">Über uns</a></li>
+          <li class="nav-list__item"><a href="geschichte.html" class="nav-list__link">Geschichte</a></li>
+          <li class="nav-list__item"><a href="aktuelles.html" class="nav-list__link">Aktuelles</a></li>
+          <li class="nav-list__item"><a href="termine.html" class="nav-list__link">Termine</a></li>
+          <li class="nav-list__item"><a href="imkereien.html" class="nav-list__link">Imkereien</a></li>
+          <li class="nav-list__item"><a href="galerie.html" class="nav-list__link">Galerie</a></li>
+          <li class="nav-list__item"><a href="kontakt.html" class="nav-list__link">Kontakt</a></li>
+        </ul>
+        <a href="mitglied-werden.html" class="btn btn--primary btn--sm nav-cta">Mitglied werden</a>
+      </nav>
+      <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <ul class="mobile-nav__list" role="list">
+      <li><a href="index.html" class="mobile-nav__link">Startseite</a></li>
+      <li><a href="ueber-uns.html" class="mobile-nav__link">Über uns</a></li>
+      <li><a href="geschichte.html" class="mobile-nav__link">Geschichte</a></li>
+      <li><a href="aktuelles.html" class="mobile-nav__link">Aktuelles</a></li>
+      <li><a href="termine.html" class="mobile-nav__link">Termine</a></li>
+      <li><a href="imkereien.html" class="mobile-nav__link">Imkereien</a></li>
+      <li><a href="galerie.html" class="mobile-nav__link">Galerie</a></li>
+      <li><a href="kontakt.html" class="mobile-nav__link">Kontakt</a></li>
+    </ul>
+    <div class="mobile-nav__cta">
+      <a href="mitglied-werden.html" class="btn btn--primary">Mitglied werden</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero hero--subpage" aria-label="Seitenbanner Galerie">
+      <!-- Bildplatzhalter: images/galerie-biene-bluete.jpg – Motiv: Biene auf Blüte -->
+      <div class="hero__bg" style="background-image: url('images/galerie-biene-bluete.jpg');" role="img" aria-label="Biene auf einer Blüte in Nahaufnahme"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <span class="hero__label">Bilder aus dem Vereinsleben</span>
+        <h1 class="hero__title">Galerie</h1>
+        <p class="hero__sub">Eindrücke aus Natur, Imkerei und Vereinsgemeinschaft</p>
+      </div>
+    </section>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Navigationspfad">
+      <div class="container">
+        <ol class="breadcrumb__list" role="list">
+          <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">Startseite</a></li>
+          <li class="breadcrumb__item"><span class="breadcrumb__current">Galerie</span></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- GALERIE -->
+    <section class="section" aria-labelledby="galerie-heading">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-10);">
+          <span class="section-label">Bildergalerie</span>
+          <h2 class="section-title" id="galerie-heading">Impressionen aus dem Vereinsleben</h2>
+          <p class="section-intro" style="margin: 0 auto var(--space-8);">
+            Ein Klick auf ein Bild öffnet es in der Großansicht. Mit den Pfeiltasten
+            oder Wischen können Sie durch die Galerie navigieren.
+          </p>
+        </div>
+
+        <!-- Kategorie-Filter -->
+        <div class="gallery-filter" role="group" aria-label="Bilder nach Kategorie filtern">
+          <button class="filter-btn is-active" data-filter="alle">Alle Bilder</button>
+          <button class="filter-btn" data-filter="natur">Natur & Bienen</button>
+          <button class="filter-btn" data-filter="waben">Waben & Honigraum</button>
+          <button class="filter-btn" data-filter="vereinsleben">Vereinsleben</button>
+          <button class="filter-btn" data-filter="lehrgaenge">Lehrgänge</button>
+        </div>
+
+        <!-- Bildergitter -->
+        <div class="gallery-grid" role="list" aria-label="Fotogalerie">
+
+          <!-- Bild 1: Biene auf Blüte -->
+          <div
+            class="gallery-item"
+            role="listitem"
+            data-kategorie="natur"
+            data-src="images/galerie-biene-bluete.jpg"
+            data-caption="Biene auf Blüte – Bestäubung ist der Beitrag der Honigbiene zur Artenvielfalt"
+            data-emoji="🌸"
+            aria-label="Bild öffnen: Biene auf Blüte"
+          >
+            <!-- Bildplatzhalter: images/galerie-biene-bluete.jpg – Biene auf Blüte -->
+            <img src="images/galerie-biene-bluete.jpg" alt="Honigbiene auf einer Blüte bei der Bestäubung" loading="lazy">
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Biene auf Blüte</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 2: Wabenstruktur -->
+          <div
+            class="gallery-item"
+            role="listitem"
+            data-kategorie="waben"
+            data-src="images/galerie-waben.jpg"
+            data-caption="Wabenstruktur – Meisterwerk der Natur: sechseckige Zellen aus Bienenwachs"
+            data-emoji="🔶"
+            aria-label="Bild öffnen: Wabenstruktur"
+          >
+            <!-- Bildplatzhalter: images/galerie-waben.jpg – Wabenstruktur -->
+            <img src="images/galerie-waben.jpg" alt="Detailaufnahme einer Honigwabe mit sechseckigen Wachszellen" loading="lazy">
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Wabenstruktur</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 3: Honigraum -->
+          <div
+            class="gallery-item"
+            role="listitem"
+            data-kategorie="waben"
+            data-src="images/galerie-honigraum.jpg"
+            data-caption="Geöffneter Honigraum – verdeckelte Waben zeigen: die Ernte ist bereit"
+            data-emoji="🍯"
+            aria-label="Bild öffnen: Honigraum"
+          >
+            <!-- Bildplatzhalter: images/galerie-honigraum.jpg – geöffneter Honigraum -->
+            <img src="images/galerie-honigraum.jpg" alt="Geöffneter Honigraum mit verdeckelten Honigwaben" loading="lazy">
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Honigraum</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 4: Vereinsaktion -->
+          <div
+            class="gallery-item"
+            role="listitem"
+            data-kategorie="vereinsleben"
+            data-src="images/galerie-vereinsaktion.jpg"
+            data-caption="Vereinsaktion – Mitglieder des Imkervereins Herdecke-Ende gemeinsam unterwegs"
+            data-emoji="🤝"
+            aria-label="Bild öffnen: Vereinsaktion"
+          >
+            <!-- Bildplatzhalter: images/galerie-vereinsaktion.jpg – gemeinsame Vereinsaktion -->
+            <img src="images/galerie-vereinsaktion.jpg" alt="Mitglieder des Imkervereins Herdecke-Ende bei einer gemeinsamen Vereinsaktion" loading="lazy">
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Vereinsaktion</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 5: Natur / Blühfläche -->
+          <div
+            class="gallery-item"
+            role="listitem"
+            data-kategorie="natur"
+            data-src="images/galerie-natur.jpg"
+            data-caption="Blühfläche – bienenfreundliche Umgebung in der Region Herdecke"
+            data-emoji="🌺"
+            aria-label="Bild öffnen: Blühfläche"
+          >
+            <!-- Bildplatzhalter: images/galerie-natur.jpg – Blühfläche oder naturnahe Umgebung -->
+            <img src="images/galerie-natur.jpg" alt="Wildblumenwiese als bienenfreundliche Blühfläche in der Region Herdecke" loading="lazy">
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Blühfläche</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 6: Flugloch -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="natur"
+            data-src=""
+            data-caption="Bienen am Flugloch – geschäftiger Bienenstand an einem sonnigen Sommertag"
+            data-emoji="🐝"
+            aria-label="Bild öffnen: Bienen am Flugloch"
+          >
+            <span aria-hidden="true">🐝</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Bienen am Flugloch</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 7: Imker bei Arbeit -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="lehrgaenge"
+            data-src=""
+            data-caption="Praxiseinheit – erfahrenes Mitglied zeigt Einsteigern die Arbeit am offenen Volk"
+            data-emoji="🧑‍🌾"
+            aria-label="Bild öffnen: Praxiseinheit"
+          >
+            <span aria-hidden="true">🧑‍🌾</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Praxiseinheit</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 8: Imkertreff -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="vereinsleben"
+            data-src=""
+            data-caption="Imkertreff – monatlicher Abend beim Sportlertreff Herdecke-Ende"
+            data-emoji="💡"
+            aria-label="Bild öffnen: Imkertreff"
+          >
+            <span aria-hidden="true">💡</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Imkertreff</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 9: Honig schleudern -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="waben"
+            data-src=""
+            data-caption="Honigschleuder – frisch gewonnener Honig nach der Ernte"
+            data-emoji="⚙️"
+            aria-label="Bild öffnen: Honigschleuder"
+          >
+            <span aria-hidden="true">⚙️</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Honigschleuder</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 10: Infostand -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="vereinsleben"
+            data-src=""
+            data-caption="Infostand – Vereinsmitglieder bei der Öffentlichkeitsarbeit"
+            data-emoji="🏷️"
+            aria-label="Bild öffnen: Infostand"
+          >
+            <span aria-hidden="true">🏷️</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Infostand</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 11: Lehrgang -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="lehrgaenge"
+            data-src=""
+            data-caption="Lehrgang – Imkerkurs für Einsteiger im Vereinsumfeld"
+            data-emoji="📖"
+            aria-label="Bild öffnen: Lehrgang"
+          >
+            <span aria-hidden="true">📖</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Lehrgang für Einsteiger</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+          <!-- Bild 12: Waldrand Bienenstand -->
+          <div
+            class="gallery-item gallery-item--placeholder"
+            role="listitem"
+            data-kategorie="natur"
+            data-src=""
+            data-caption="Bienenstand am Waldrand – natürliche Umgebung für starke Völker"
+            data-emoji="🌲"
+            aria-label="Bild öffnen: Bienenstand am Waldrand"
+          >
+            <span aria-hidden="true">🌲</span>
+            <div class="gallery-item__overlay" aria-hidden="true">
+              <span class="gallery-item__caption">Bienenstand am Waldrand</span>
+            </div>
+            <span class="gallery-item__icon" aria-hidden="true">🔍</span>
+          </div>
+
+        </div><!-- /gallery-grid -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Bildansicht"
+    aria-hidden="true"
+  >
+    <button class="lightbox__close" id="lightbox-close" aria-label="Galerie schließen">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Vorheriges Bild">‹</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Nächstes Bild">›</button>
+
+    <div class="lightbox__inner">
+      <!-- Echtes Bild (wenn vorhanden) -->
+      <img class="lightbox__img" id="lightbox-img" src="" alt="" style="display:none;">
+      <!-- Emoji-Platzhalter (wenn kein echtes Bild) -->
+      <div class="lightbox__img-placeholder" id="lightbox-placeholder" role="img" aria-label="Bildplatzhalter"></div>
+      <p class="lightbox__caption" id="lightbox-caption"></p>
+    </div>
+
+    <div class="lightbox__counter" id="lightbox-counter" aria-live="polite"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand__logo" aria-label="Zur Startseite">
+            <span class="footer-brand__icon" aria-hidden="true">🐝</span>
+            <span>
+              <span class="footer-brand__name">Imkerverein Herdecke-Ende e.V.</span><br>
+              <span class="footer-brand__sub">Gegründet 22. August 1926</span>
+            </span>
+          </a>
+          <p class="footer-brand__desc">Ein regional verankerter Verein für Bienenzucht, Imkerei und Naturschutz in Herdecke und der Ennepe-Ruhr-Region.</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Navigation</h3>
+          <ul class="footer-col__list" role="list">
+            <li><a href="ueber-uns.html" class="footer-col__link">Über uns</a></li>
+            <li><a href="geschichte.html" class="footer-col__link">Geschichte</a></li>
+            <li><a href="aktuelles.html" class="footer-col__link">Aktuelles</a></li>
+            <li><a href="termine.html" class="footer-col__link">Termine</a></li>
+            <li><a href="imkereien.html" class="footer-col__link">Imkereien</a></li>
+            <li><a href="galerie.html" class="footer-col__link">Galerie</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Mitmachen</h3>
+          <ul class="footer-col__list" role="list">
+            <li><a href="mitglied-werden.html" class="footer-col__link">Mitglied werden</a></li>
+            <li><a href="kontakt.html" class="footer-col__link">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col__title">Treffpunkt</h3>
+          <div class="footer-contact__item">
+            <span class="footer-contact__icon" aria-hidden="true">📍</span>
+            <address style="font-style:normal;">Sportlertreff Herdecke-Ende<br>Kirchender Dorfweg 12<br>58313 Herdecke</address>
+          </div>
+          <div class="footer-contact__item">
+            <span class="footer-contact__icon" aria-hidden="true">📅</span>
+            <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__copy">&copy; 2025 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
+        <nav class="footer-bottom__links" aria-label="Rechtliche Links">
+          <a href="impressum.html" class="footer-bottom__link">Impressum</a>
+          <a href="datenschutz.html" class="footer-bottom__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer-bottom__link">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
