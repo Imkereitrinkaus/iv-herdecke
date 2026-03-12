@@ -442,11 +442,11 @@
   box-shadow: var(--shadow-md);
 }
 
-.termin-item[data-kategorie="regulaer"] {
+.termin-item[data-kategorie="treff"] {
   border-left-color: var(--color-green);
 }
 
-.termin-item[data-kategorie="praxis"] {
+.termin-item[data-kategorie="saison"] {
   border-left-color: var(--color-amber);
 }
 
@@ -454,7 +454,11 @@
   border-left-color: var(--color-brown);
 }
 
-.termin-item[data-kategorie="oeffentlich"] {
+.termin-item[data-kategorie="neuimker"] {
+  border-left-color: var(--color-brown);
+}
+
+.termin-item[data-kategorie="aktion"] {
   border-left-color: var(--color-green-sage);
 }
 
