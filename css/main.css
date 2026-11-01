@@ -605,7 +605,7 @@ strong {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: var(--space-12);
   padding-bottom: var(--space-16);
   border-bottom: 1px solid rgba(253,246,227,0.12);

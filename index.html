@@ -6,7 +6,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imkerverein Herdecke-Ende e.V. – Seit 1926 für Bienen und Imkerei</title>
-  <meta name="description" content="Der Imkerverein Herdecke-Ende e.V. vereint seit 1926 Imkerinnen und Imker aus der Region. Monatliche Treffen, Fachwissen und Gemeinschaft – offen für Einsteiger und Erfahrene.">
+  <meta name="description" content="Imkerverein Herdecke-Ende e.V.: seit 1926 Treffpunkt für Imkerinnen, Imker und Interessierte. Imkertreff jeden 2. Dienstag im Monat, 19 Uhr – ohne Anmeldung.">
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/main.css">
@@ -30,11 +30,7 @@
         <ul class="nav-list" role="list">
           <li class="nav-list__item"><a href="index.html" class="nav-list__link">Startseite</a></li>
           <li class="nav-list__item"><a href="ueber-uns.html" class="nav-list__link">Über uns</a></li>
-          <li class="nav-list__item"><a href="geschichte.html" class="nav-list__link">Geschichte</a></li>
-          <li class="nav-list__item"><a href="aktuelles.html" class="nav-list__link">Aktuelles</a></li>
           <li class="nav-list__item"><a href="termine.html" class="nav-list__link">Termine</a></li>
-          <li class="nav-list__item"><a href="imkereien.html" class="nav-list__link">Imkereien</a></li>
-          <li class="nav-list__item"><a href="galerie.html" class="nav-list__link">Galerie</a></li>
           <li class="nav-list__item"><a href="kontakt.html" class="nav-list__link">Kontakt</a></li>
         </ul>
         <a href="mitglied-werden.html" class="btn btn--primary btn--sm nav-cta">Mitglied werden</a>
@@ -51,11 +47,7 @@
     <ul class="mobile-nav__list" role="list">
       <li><a href="index.html" class="mobile-nav__link">Startseite</a></li>
       <li><a href="ueber-uns.html" class="mobile-nav__link">Über uns</a></li>
-      <li><a href="geschichte.html" class="mobile-nav__link">Geschichte</a></li>
-      <li><a href="aktuelles.html" class="mobile-nav__link">Aktuelles</a></li>
       <li><a href="termine.html" class="mobile-nav__link">Termine</a></li>
-      <li><a href="imkereien.html" class="mobile-nav__link">Imkereien</a></li>
-      <li><a href="galerie.html" class="mobile-nav__link">Galerie</a></li>
       <li><a href="kontakt.html" class="mobile-nav__link">Kontakt</a></li>
     </ul>
     <div class="mobile-nav__cta">
@@ -64,26 +56,16 @@
   </nav>
 
   <main id="main-content">
-
-    <!-- HERO -->
-    <section class="hero" aria-label="Willkommensbanner">
-      <!-- images/hero-bienenstand.jpg – Bienenstand im warmen Abendlicht -->
-      <div
-        class="hero__bg"
-        style="background-image: url('images/hero-bienenstand.jpg');"
-        role="img"
-        aria-label="Bienenstand des Imkervereins Herdecke-Ende im Abendlicht"
-      ></div>
+    <section class="hero" aria-labelledby="seitentitel">
+      <div class="hero__bg" style="background-image: url('images/hero-bienenstand.jpg');" aria-hidden="true"></div>
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="container hero__content">
-        <span class="hero__label">Gegründet 22. August 1926</span>
-        <h1 class="hero__title">
-          Willkommen beim<br>
-          <em>Imkerverein<br>Herdecke-Ende</em>
-        </h1>
+        <span class="hero__label">Seit 1926 · 100 Jahre Verein</span>
+        <h1 class="hero__title" id="seitentitel">Imkerverein<br><em>Herdecke-Ende</em></h1>
         <p class="hero__sub">
-          Seit 1926 verbindet uns die Freude an Bienen, Imkerei und Natur.
-          Ein Verein für alle – ob erste Fragen oder langjährige Erfahrung am Stand.
+          Wir sind Imkerinnen und Imker aus Herdecke und Umgebung.
+          Neugierige und Einsteiger sind herzlich willkommen –
+          kommen Sie einfach zum nächsten Imkertreff.
         </p>
         <div class="hero__actions">
           <a href="termine.html" class="btn btn--primary btn--lg">Termine ansehen</a>
@@ -92,105 +74,80 @@
       </div>
     </section>
 
-    <!-- WAS UNS AUSZEICHNET -->
-    <section class="section" aria-labelledby="auszeichnet-heading">
+    <section class="section" aria-labelledby="termine-heading">
+      <div class="container container--narrow">
+        <div class="section-head">
+          <div>
+            <span class="section-label">Was steht an?</span>
+            <h2 class="section-title" id="termine-heading">Nächste Termine</h2>
+          </div>
+          <a href="termine.html" class="card__link">Alle Termine <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="termine-list" data-termine data-limit="3" role="list" aria-label="Nächste Termine" aria-busy="true">
+          <noscript>
+            <p class="termine-hinweis">Imkertreff: jeden 2. Dienstag im Monat, 19:00 Uhr, Sportlertreff Herdecke-Ende.</p>
+          </noscript>
+        </div>
+        <p class="termine-hinweis">
+          <strong>Imkertreff:</strong> jeden 2. Dienstag im Monat, 19:00 Uhr,
+          Sportlertreff Herdecke-Ende, Kirchender Dorfweg 12 – ohne Anmeldung.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="verein-heading">
       <div class="container">
-        <div class="text-center" style="margin-bottom: var(--space-10);">
+        <div class="text-center section-head--center">
           <span class="section-label">Unser Verein</span>
-          <h2 class="section-title" id="auszeichnet-heading">Was uns auszeichnet</h2>
+          <h2 class="section-title" id="verein-heading">Was uns ausmacht</h2>
         </div>
         <div class="feature-cards">
           <div class="feature-card reveal">
             <div class="feature-card__icon" aria-hidden="true">🤝</div>
             <h3 class="feature-card__title">Gemeinschaft</h3>
-            <p class="feature-card__text">
-              Beim monatlichen Imkertreff kommen Einsteiger und erfahrene Imker zusammen.
-              Fragen sind immer willkommen.
-            </p>
+            <p class="feature-card__text">Einsteiger und erfahrene Imker treffen sich jeden Monat. Fragen sind immer willkommen.</p>
           </div>
           <div class="feature-card reveal reveal--delay-1">
             <div class="feature-card__icon" aria-hidden="true">📚</div>
             <h3 class="feature-card__title">Fachwissen</h3>
-            <p class="feature-card__text">
-              Vorträge, Praxisabende und der Erfahrungsschatz der Mitglieder
-              stehen allen im Verein offen.
-            </p>
+            <p class="feature-card__text">Vorträge, Praxistermine am Bienenstand und viel Erfahrung, die wir gerne teilen.</p>
           </div>
           <div class="feature-card reveal reveal--delay-2">
             <div class="feature-card__icon" aria-hidden="true">🌿</div>
             <h3 class="feature-card__title">Naturschutz</h3>
-            <p class="feature-card__text">
-              Imkerei ist gelebter Naturschutz. Wir setzen uns für Blühflächen
-              und gesunde Bienenvölker in der Region ein.
-            </p>
+            <p class="feature-card__text">Wir setzen uns für gesunde Bienenvölker und Blühflächen in der Region ein.</p>
           </div>
         </div>
+        <dl class="fakten">
+          <div class="fakten__item"><dt>Gegründet</dt><dd>1926</dd></div>
+          <div class="fakten__item"><dt>Mitglieder</dt><dd>102</dd></div>
+          <div class="fakten__item"><dt>Bienenvölker</dt><dd>ca. 600</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- IMKERTREFF -->
-    <section class="section section--alt" aria-labelledby="treff-heading">
+    <section class="section" aria-labelledby="cta-heading">
       <div class="container">
-        <div class="treff-highlight reveal" role="region" aria-labelledby="treff-heading">
-          <div class="treff-highlight__info">
-            <span class="treff-highlight__label">Regelmäßiger Treff</span>
-            <h2 class="treff-highlight__title" id="treff-heading">Imkertreff</h2>
-            <div class="treff-highlight__details">
-              <div class="treff-detail" data-next-treff hidden>
-                <span class="treff-detail__icon" aria-hidden="true">🔔</span>
-                <span><strong>Nächster Treff:</strong> <span data-next-treff-text></span></span>
-              </div>
-              <div class="treff-detail">
-                <span class="treff-detail__icon" aria-hidden="true">📅</span>
-                <span>Jeden zweiten Dienstag im Monat, 19:00 Uhr</span>
-              </div>
-              <div class="treff-detail">
-                <span class="treff-detail__icon" aria-hidden="true">📍</span>
-                <address style="font-style: normal;">
-                  Sportlertreff Herdecke-Ende<br>
-                  Kirchender Dorfweg 12, 58313 Herdecke
-                </address>
-              </div>
-              <div class="treff-detail">
-                <span class="treff-detail__icon" aria-hidden="true">💬</span>
-                <span>Keine Anmeldung nötig – einfach vorbeikommen.</span>
-              </div>
-            </div>
+        <div class="antrag-box reveal">
+          <div class="antrag-box__content">
+            <h2 class="antrag-box__title" id="cta-heading">Lust auf Bienen?</h2>
+            <p class="antrag-box__text">
+              Vorkenntnisse brauchen Sie nicht. Kommen Sie zum Imkertreff
+              oder schreiben Sie uns – wir helfen gern beim Einstieg.
+            </p>
           </div>
-          <div class="treff-highlight__action">
-            <a href="termine.html" class="btn btn--outline-light">Alle Termine</a>
+          <div class="btn-stack">
+            <a href="mitglied-werden.html" class="btn btn--primary">Mitglied werden</a>
             <a href="kontakt.html" class="btn btn--outline-light">Kontakt</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- VERTRAUEN -->
-    <section class="section" aria-labelledby="vertrauen-heading">
-      <div class="container container--narrow text-center">
-        <span class="section-label">Seit 100 Jahren</span>
-        <h2 class="section-title" id="vertrauen-heading">Regional verwurzelt, offen für alle</h2>
-        <p class="section-intro" style="margin: 0 auto var(--space-6);">
-          102 Mitglieder betreuen gemeinsam rund 600 Bienenvölker in Herdecke und Umgebung.
-          Der Verein ist dem Kreisimkerverein Ennepe-Ruhr und dem Landesverband
-          Westfälischer und Lippischer Imker angeschlossen.
-        </p>
-        <p class="section-intro" style="margin: 0 auto;">
-          Wer mehr über den Verein erfahren möchte, ist herzlich eingeladen –
-          beim nächsten Imkertreff oder über das Kontaktformular.
-        </p>
-        <div style="display: flex; justify-content: center; gap: var(--space-4); margin-top: var(--space-8); flex-wrap: wrap;">
-          <a href="ueber-uns.html" class="btn btn--secondary">Über den Verein</a>
-          <a href="mitglied-werden.html" class="btn btn--primary">Mitglied werden</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid footer-grid--kompakt">
         <div class="footer-brand">
           <a href="index.html" class="footer-brand__logo" aria-label="Zur Startseite">
             <span class="footer-brand__icon" aria-hidden="true">🐝</span>
@@ -199,49 +156,38 @@
               <span class="footer-brand__sub">Gegründet 22. August 1926</span>
             </span>
           </a>
-          <p class="footer-brand__desc">Ein regional verankerter Verein für Bienenzucht, Imkerei und Naturschutz in Herdecke und der Ennepe-Ruhr-Region.</p>
+          <p class="footer-brand__desc">Bienen, Imkerei und Naturschutz in Herdecke und der Ennepe-Ruhr-Region.</p>
         </div>
         <div class="footer-col">
-          <h3 class="footer-col__title">Navigation</h3>
+          <h2 class="footer-col__title">Verein</h2>
           <ul class="footer-col__list" role="list">
             <li><a href="ueber-uns.html" class="footer-col__link">Über uns</a></li>
-            <li><a href="geschichte.html" class="footer-col__link">Geschichte</a></li>
-            <li><a href="aktuelles.html" class="footer-col__link">Aktuelles</a></li>
             <li><a href="termine.html" class="footer-col__link">Termine</a></li>
-            <li><a href="imkereien.html" class="footer-col__link">Imkereien</a></li>
-            <li><a href="galerie.html" class="footer-col__link">Galerie</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3 class="footer-col__title">Mitmachen</h3>
-          <ul class="footer-col__list" role="list">
             <li><a href="mitglied-werden.html" class="footer-col__link">Mitglied werden</a></li>
             <li><a href="kontakt.html" class="footer-col__link">Kontakt</a></li>
-            <li><a href="termine.html" class="footer-col__link">Nächster Treff</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="footer-col__title">Treffpunkt</h3>
+          <h2 class="footer-col__title">Imkertreff</h2>
+          <div class="footer-contact__item">
+            <span class="footer-contact__icon" aria-hidden="true">📅</span>
+            <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
+          </div>
           <div class="footer-contact__item">
             <span class="footer-contact__icon" aria-hidden="true">📍</span>
-            <address style="font-style: normal;">
+            <address class="address-plain">
               Sportlertreff Herdecke-Ende<br>
               Kirchender Dorfweg 12<br>
               58313 Herdecke
             </address>
           </div>
-          <div class="footer-contact__item">
-            <span class="footer-contact__icon" aria-hidden="true">📅</span>
-            <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
-          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V.</p>
         <nav class="footer-bottom__links" aria-label="Rechtliche Links">
           <a href="impressum.html" class="footer-bottom__link">Impressum</a>
           <a href="datenschutz.html" class="footer-bottom__link">Datenschutz</a>
-          <a href="kontakt.html" class="footer-bottom__link">Kontakt</a>
         </nav>
       </div>
     </div>
@@ -249,6 +195,7 @@
 
   <script src="js/nav.js"></script>
   <script src="js/scroll.js"></script>
-  <script src="js/next-treff.js"></script>
+  <script src="js/termine-daten.js"></script>
+  <script src="js/termine.js"></script>
 </body>
 </html>

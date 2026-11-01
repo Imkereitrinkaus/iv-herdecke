@@ -6,7 +6,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Termine – Imkerverein Herdecke-Ende e.V.</title>
-  <meta name="description" content="Termine des Imkervereins Herdecke-Ende: Imkertreffs, Praxisveranstaltungen, Fachvorträge und Vereinsaktivitäten. Jeden 2. Dienstag im Monat, 19:00 Uhr.">
+  <meta name="description" content="Termine des Imkervereins Herdecke-Ende: Imkertreff jeden 2. Dienstag im Monat um 19 Uhr, dazu Vorträge, Praxistermine und Aktionen.">
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/main.css">
@@ -30,11 +30,7 @@
         <ul class="nav-list" role="list">
           <li class="nav-list__item"><a href="index.html" class="nav-list__link">Startseite</a></li>
           <li class="nav-list__item"><a href="ueber-uns.html" class="nav-list__link">Über uns</a></li>
-          <li class="nav-list__item"><a href="geschichte.html" class="nav-list__link">Geschichte</a></li>
-          <li class="nav-list__item"><a href="aktuelles.html" class="nav-list__link">Aktuelles</a></li>
           <li class="nav-list__item"><a href="termine.html" class="nav-list__link">Termine</a></li>
-          <li class="nav-list__item"><a href="imkereien.html" class="nav-list__link">Imkereien</a></li>
-          <li class="nav-list__item"><a href="galerie.html" class="nav-list__link">Galerie</a></li>
           <li class="nav-list__item"><a href="kontakt.html" class="nav-list__link">Kontakt</a></li>
         </ul>
         <a href="mitglied-werden.html" class="btn btn--primary btn--sm nav-cta">Mitglied werden</a>
@@ -51,11 +47,7 @@
     <ul class="mobile-nav__list" role="list">
       <li><a href="index.html" class="mobile-nav__link">Startseite</a></li>
       <li><a href="ueber-uns.html" class="mobile-nav__link">Über uns</a></li>
-      <li><a href="geschichte.html" class="mobile-nav__link">Geschichte</a></li>
-      <li><a href="aktuelles.html" class="mobile-nav__link">Aktuelles</a></li>
       <li><a href="termine.html" class="mobile-nav__link">Termine</a></li>
-      <li><a href="imkereien.html" class="mobile-nav__link">Imkereien</a></li>
-      <li><a href="galerie.html" class="mobile-nav__link">Galerie</a></li>
       <li><a href="kontakt.html" class="mobile-nav__link">Kontakt</a></li>
     </ul>
     <div class="mobile-nav__cta">
@@ -64,33 +56,21 @@
   </nav>
 
   <main id="main-content">
-
-    <section class="hero hero--subpage" aria-label="Seitenbanner Termine">
-      <div class="hero__bg" style="background-image: url('images/imkertreff-raum.jpg');" role="img" aria-label="Vereinsraum beim Imkertreff"></div>
+    <section class="hero hero--subpage" aria-labelledby="seitentitel">
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="container hero__content">
         <span class="hero__label">Veranstaltungen</span>
-        <h1 class="hero__title">Termine</h1>
-        <p class="hero__sub">Treffen, Vorträge und Aktionen des Imkervereins Herdecke-Ende</p>
+        <h1 class="hero__title" id="seitentitel">Termine</h1>
+        <p class="hero__sub">Imkertreffs, Vorträge und Aktionen – Gäste sind immer willkommen</p>
       </div>
     </section>
 
-    <nav class="breadcrumb" aria-label="Navigationspfad">
-      <div class="container">
-        <ol class="breadcrumb__list" role="list">
-          <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">Startseite</a></li>
-          <li class="breadcrumb__item"><span class="breadcrumb__current">Termine</span></li>
-        </ol>
-      </div>
-    </nav>
-
-    <!-- Regelmäßiger Imkertreff (statisch – Rhythmus ändert sich nicht) -->
     <section class="section" aria-labelledby="imkertreff-heading">
-      <div class="container">
-        <div class="imkertreff-box reveal" role="region" aria-labelledby="imkertreff-heading">
+      <div class="container container--narrow">
+        <div class="imkertreff-box reveal">
           <div class="imkertreff-box__icon" aria-hidden="true">🐝</div>
           <div class="imkertreff-box__content">
-            <span class="imkertreff-box__label">Regelmäßiger Vereinstreff</span>
+            <span class="imkertreff-box__label">Regelmäßig</span>
             <h2 class="imkertreff-box__title" id="imkertreff-heading">Der Imkertreff</h2>
             <div class="imkertreff-box__details">
               <div class="imkertreff-detail" data-next-treff hidden>
@@ -99,17 +79,15 @@
               </div>
               <div class="imkertreff-detail">
                 <span aria-hidden="true">📅</span>
-                <span><strong>Jeden zweiten Dienstag im Monat, 19:00 Uhr</strong></span>
+                <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
               </div>
               <div class="imkertreff-detail">
                 <span aria-hidden="true">📍</span>
-                <address style="font-style: normal;">
-                  Sportlertreff Herdecke-Ende, Kirchender Dorfweg 12, 58313 Herdecke
-                </address>
+                <address class="address-plain">Sportlertreff Herdecke-Ende, Kirchender Dorfweg 12, 58313 Herdecke</address>
               </div>
               <div class="imkertreff-detail">
                 <span aria-hidden="true">💬</span>
-                <span>Offen für Mitglieder, Einsteiger und Interessierte – ohne Anmeldung.</span>
+                <span>Für Mitglieder, Einsteiger und Interessierte – ohne Anmeldung.</span>
               </div>
             </div>
           </div>
@@ -117,70 +95,23 @@
       </div>
     </section>
 
-    <!-- Dynamische Terminliste -->
-    <section class="section section--alt" aria-labelledby="termine-list-heading">
-      <div class="container">
-
-        <div style="margin-bottom: var(--space-8);">
-          <span class="section-label">Veranstaltungskalender</span>
-          <h2 class="section-title" id="termine-list-heading">Alle Termine</h2>
+    <section class="section section--alt" aria-labelledby="liste-heading">
+      <div class="container container--narrow">
+        <span class="section-label">Kalender</span>
+        <h2 class="section-title" id="liste-heading">Alle Termine</h2>
+        <div class="termine-list" data-termine role="list" aria-label="Terminliste" aria-busy="true">
+          <noscript>
+            <p class="termine-hinweis">Imkertreff: jeden 2. Dienstag im Monat, 19:00 Uhr, Sportlertreff Herdecke-Ende.</p>
+          </noscript>
         </div>
-
-        <!-- Fehlermeldung – per JS eingeblendet wenn fetch scheitert -->
-        <div id="termine-error" role="alert" aria-live="assertive">
-          Die Termine konnten derzeit nicht geladen werden. Bitte versuchen Sie es später erneut.
-        </div>
-
-        <!-- Filterleiste -->
-        <div class="termine-filter" role="group" aria-label="Termine nach Kategorie filtern">
-          <button class="filter-btn is-active" data-filter="alle">Alle</button>
-          <button class="filter-btn" data-filter="treff">Vereinstreff</button>
-          <button class="filter-btn" data-filter="saison">Praxis</button>
-          <button class="filter-btn" data-filter="vortrag">Fachvortrag</button>
-          <button class="filter-btn" data-filter="neuimker">Neuimker</button>
-          <button class="filter-btn" data-filter="aktion">Öffentlich</button>
-        </div>
-
-        <!-- Toolbar: Zeitstempel + manueller Refresh -->
-        <div class="termine-toolbar">
-          <span id="termine-last-updated" aria-live="polite"></span>
-          <button
-            class="btn btn--secondary btn--sm"
-            id="termine-refresh-btn"
-            aria-label="Terminliste manuell neu laden"
-          >↻ Termine aktualisieren</button>
-        </div>
-
-        <!-- Leermeldung – per JS eingeblendet -->
-        <p id="termine-no-results" role="status" aria-live="polite">
-          Für den gewählten Bereich sind derzeit keine Termine eingetragen.
-        </p>
-
-        <!-- Container – wird vollständig per JavaScript befüllt -->
-        <div id="termine-container" role="list" aria-label="Terminliste" aria-live="polite"></div>
-
+        <p class="termine-hinweis">Kurzfristige Änderungen geben wir beim Imkertreff bekannt.</p>
       </div>
     </section>
-
-    <section class="section" aria-labelledby="hinweis-termine-heading">
-      <div class="container container--narrow text-center">
-        <div class="feature-card" style="max-width: 600px; margin: 0 auto;">
-          <div class="feature-card__icon" aria-hidden="true">📣</div>
-          <h2 class="feature-card__title" id="hinweis-termine-heading">Kurzfristige Änderungen</h2>
-          <p class="feature-card__text">
-            Änderungen und Zusatztermine werden beim Imkertreff bekanntgegeben.
-            Bei Fragen stehen wir gerne über das Kontaktformular zur Verfügung.
-          </p>
-          <a href="kontakt.html" class="btn btn--primary" style="margin-top: var(--space-5);">Kontakt aufnehmen</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid footer-grid--kompakt">
         <div class="footer-brand">
           <a href="index.html" class="footer-brand__logo" aria-label="Zur Startseite">
             <span class="footer-brand__icon" aria-hidden="true">🐝</span>
@@ -189,48 +120,38 @@
               <span class="footer-brand__sub">Gegründet 22. August 1926</span>
             </span>
           </a>
-          <p class="footer-brand__desc">Ein regional verankerter Verein für Bienenzucht, Imkerei und Naturschutz in Herdecke und der Ennepe-Ruhr-Region.</p>
+          <p class="footer-brand__desc">Bienen, Imkerei und Naturschutz in Herdecke und der Ennepe-Ruhr-Region.</p>
         </div>
         <div class="footer-col">
-          <h3 class="footer-col__title">Navigation</h3>
+          <h2 class="footer-col__title">Verein</h2>
           <ul class="footer-col__list" role="list">
             <li><a href="ueber-uns.html" class="footer-col__link">Über uns</a></li>
-            <li><a href="geschichte.html" class="footer-col__link">Geschichte</a></li>
-            <li><a href="aktuelles.html" class="footer-col__link">Aktuelles</a></li>
             <li><a href="termine.html" class="footer-col__link">Termine</a></li>
-            <li><a href="imkereien.html" class="footer-col__link">Imkereien</a></li>
-            <li><a href="galerie.html" class="footer-col__link">Galerie</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3 class="footer-col__title">Mitmachen</h3>
-          <ul class="footer-col__list" role="list">
             <li><a href="mitglied-werden.html" class="footer-col__link">Mitglied werden</a></li>
             <li><a href="kontakt.html" class="footer-col__link">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h3 class="footer-col__title">Treffpunkt</h3>
+          <h2 class="footer-col__title">Imkertreff</h2>
+          <div class="footer-contact__item">
+            <span class="footer-contact__icon" aria-hidden="true">📅</span>
+            <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
+          </div>
           <div class="footer-contact__item">
             <span class="footer-contact__icon" aria-hidden="true">📍</span>
-            <address style="font-style: normal;">
+            <address class="address-plain">
               Sportlertreff Herdecke-Ende<br>
               Kirchender Dorfweg 12<br>
               58313 Herdecke
             </address>
           </div>
-          <div class="footer-contact__item">
-            <span class="footer-contact__icon" aria-hidden="true">📅</span>
-            <span>Jeden 2. Dienstag im Monat, 19:00 Uhr</span>
-          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V.</p>
         <nav class="footer-bottom__links" aria-label="Rechtliche Links">
           <a href="impressum.html" class="footer-bottom__link">Impressum</a>
           <a href="datenschutz.html" class="footer-bottom__link">Datenschutz</a>
-          <a href="kontakt.html" class="footer-bottom__link">Kontakt</a>
         </nav>
       </div>
     </div>
@@ -238,7 +159,7 @@
 
   <script src="js/nav.js"></script>
   <script src="js/scroll.js"></script>
-  <script src="js/terms.js"></script>
-  <script src="js/next-treff.js"></script>
+  <script src="js/termine-daten.js"></script>
+  <script src="js/termine.js"></script>
 </body>
 </html>

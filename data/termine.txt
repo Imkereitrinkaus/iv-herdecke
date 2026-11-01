@@ -1,0 +1,41 @@
+# =====================================================================
+#  TERMINE – Imkerverein Herdecke-Ende e.V.
+# =====================================================================
+#
+#  So tragen Sie einen Termin ein:
+#   1. Unten einen neuen Block anlegen (Vorlage kopieren).
+#   2. Zwischen zwei Terminen eine Leerzeile lassen.
+#   3. Speichern – fertig. Die Reihenfolge ist egal, sortiert wird automatisch.
+#
+#  Datum:  TT.MM.JJJJ                                         (Pflicht)
+#  Titel:  Was findet statt?                                  (Pflicht)
+#  Zeit:   z. B. 18:00 Uhr                  (leer lassen = 19:00 Uhr)
+#  Art:    Treff, Vortrag, Praxis, Neuimker, Öffentlich oder Entfällt
+#  Ort:    Adresse                (leer lassen = Sportlertreff Herdecke-Ende)
+#  Text:   Kurze Beschreibung                                 (optional)
+#
+#  WICHTIG:
+#  - Den monatlichen Imkertreff (jeden 2. Dienstag, 19 Uhr) müssen Sie
+#    NICHT eintragen – er erscheint automatisch.
+#    Nur eintragen, wenn es ein Thema gibt oder er ausfällt:
+#       Datum: 08.12.2026
+#       Titel: Imkertreff
+#       Art: Entfällt
+#  - Vergangene Termine verschwinden von selbst und können später
+#    gelöscht werden.
+#  - Zeilen mit # am Anfang sind Notizen und erscheinen nicht auf der Website.
+#
+#  ---- Vorlage zum Kopieren -------------------------------------------
+#  Datum:
+#  Titel:
+#  Zeit:
+#  Art:
+#  Ort:
+#  Text:
+# =====================================================================
+
+
+Datum: 10.11.2026
+Titel: Fachvortrag: Bienengesundheit im Winter
+Art: Vortrag
+Text: Winterbiologie der Biene und Hinweise zur Einwinterung. Mit Diskussionsrunde und Erfahrungsaustausch.

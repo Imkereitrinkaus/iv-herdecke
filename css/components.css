@@ -534,23 +534,23 @@
 }
 
 .termin-badge--regulaer {
-  background-color: rgba(61,107,61,0.12);
+  background-color: #E3F1E8;
   color: var(--color-green);
 }
 
 .termin-badge--praxis {
-  background-color: rgba(193,125,14,0.12);
-  color: var(--color-amber);
+  background-color: #FFF1CC;
+  color: var(--color-honey-dark);
 }
 
 .termin-badge--vortrag {
-  background-color: rgba(139,94,60,0.12);
-  color: var(--color-brown);
+  background-color: #E6ECFA;
+  color: #34478F;
 }
 
 .termin-badge--oeffentlich {
-  background-color: rgba(107,143,113,0.12);
-  color: var(--color-green-sage);
+  background-color: #F1E8F7;
+  color: #6B3F8A;
 }
 
 /* Imkertreff-Block auf Terminseite */
@@ -1561,4 +1561,92 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+/* ----- Termine: ausgefallene Termine ----- */
+.termin-badge--entfaellt {
+  background-color: #FBE9E7;
+  color: #9F2D20;
+}
+
+.termin-item--entfaellt {
+  opacity: 0.75;
+  border-left-color: #D9796B;
+}
+
+.termin-item--entfaellt .termin-info__title {
+  text-decoration: line-through;
+}
+
+.termine-mehr {
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+/* ================================================================
+   KOMPAKT-LAYOUT (Startseite & Termine)
+   ================================================================ */
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.section-head .section-title {
+  margin-bottom: 0;
+}
+
+.section-head--center {
+  margin-bottom: var(--space-10);
+}
+
+.termine-list[aria-busy="true"]:empty {
+  min-height: 12rem;
+}
+
+.termine-hinweis {
+  margin-top: var(--space-6);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.address-plain {
+  font-style: normal;
+}
+
+/* Zahlen & Fakten */
+.fakten {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+  text-align: center;
+}
+
+.fakten__item {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-1);
+}
+
+.fakten dd {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-green);
+  line-height: 1.1;
+}
+
+.fakten dt {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.verband-box + .verband-box {
+  margin-top: var(--space-5);
 }
