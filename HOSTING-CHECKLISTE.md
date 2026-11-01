@@ -32,6 +32,10 @@ auch die Nextcloud-Dateien gesehen oder verändert haben.
       Domain → Website-Ordner, Subdomain (z. B. `cloud.…`) → Nextcloud-Ordner
 
 ## 4. Neue Website hochladen
+- [ ] **Vorschau-Sperre entfernen:** in `index.html`, `ueber-uns.html`, `termine.html`,
+      `mitglied-werden.html` und `kontakt.html` die zwei Zeilen
+      `<!-- VORSCHAU-SPERRE … -->` und `<meta name="robots" content="noindex, nofollow">` löschen
+      (sonst erscheint die Seite nicht bei Google)
 - [ ] SSL-Zertifikat beim Hoster aktiv (sonst funktioniert die HTTPS-Weiterleitung nicht)
 - [ ] Alle Dateien aus diesem Repository hochladen, **inklusive `.htaccess`**
       (ohne `.git`, `HOSTING-CHECKLISTE.md` kann weggelassen werden)
