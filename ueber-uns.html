@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über uns – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Der Imkerverein Herdecke-Ende e.V. – regional verwurzelt, fachkompetent und offen für Einsteiger. Erfahren Sie mehr über unsere Ziele, Aufgaben und Gemeinschaft.">
@@ -253,9 +255,9 @@
               Austausch, Unterstützung und praxisnahes Wissen.
             </p>
           </div>
-          <div style="display: flex; flex-direction: column; gap: var(--space-4); flex-shrink: 0;">
-            <a href="mitglied-werden.html" class="btn btn--secondary" style="background: white; color: var(--color-honey-dark); border-color: white;">Mitglied werden</a>
-            <a href="termine.html" class="btn btn--outline-light" style="border-color: rgba(255,255,255,0.5); color: white;">Nächster Termin</a>
+          <div class="btn-stack">
+            <a href="mitglied-werden.html" class="btn btn--primary">Mitglied werden</a>
+            <a href="termine.html" class="btn btn--outline-light">Nächster Termin</a>
           </div>
         </div>
       </div>

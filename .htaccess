@@ -1,0 +1,71 @@
+# =================================================================
+#  .htaccess – Imkerverein Herdecke-Ende e.V.
+#  Sicherheitseinstellungen für Apache-Webserver
+#  (Standard bei den meisten deutschen Hostern, z. B. IONOS, Strato,
+#  all-inkl, Hetzner Webhosting).
+#  Die Website ist rein statisch (HTML/CSS/JS) – sie braucht weder
+#  PHP noch eine Datenbank. Genau das macht sie schwer angreifbar.
+# =================================================================
+
+# ----- 1. Immer verschlüsselt (HTTPS) -----------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ----- 2. Keine Verzeichnis-Auflistung ----------------------------
+Options -Indexes
+
+# ----- 3. Versteckte Dateien sperren (.git, .htaccess, .env …) ----
+<IfModule mod_rewrite.c>
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
+</IfModule>
+
+# ----- 4. Keine Skripte ausführen ---------------------------------
+# Falls Angreifer über gestohlene Zugangsdaten z. B. eine PHP-Datei
+# hochladen, wird sie nicht ausgeführt, sondern blockiert.
+<FilesMatch "\.(php[0-9]?|phtml|phar|pl|py|cgi|sh|asp|aspx|jsp)$">
+  Require all denied
+</FilesMatch>
+
+# Sicherungs- und Konfigurationsdateien sperren
+<FilesMatch "\.(bak|old|orig|swp|sql|log|ini|conf|md|yml|yaml)$|~$">
+  Require all denied
+</FilesMatch>
+
+# ----- 5. Sicherheits-Header --------------------------------------
+<IfModule mod_headers.c>
+  # Erlaubt nur Inhalte vom eigenen Server (Schutz vor eingeschleustem Code)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; frame-ancestors 'none'"
+  # Seite darf nicht in fremde Seiten eingebettet werden (Clickjacking)
+  Header always set X-Frame-Options "DENY"
+  # Browser soll Dateitypen nicht raten
+  Header always set X-Content-Type-Options "nosniff"
+  # Beim Klick auf externe Links nur die Domain weitergeben
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Kamera, Mikrofon, Standort usw. werden nicht benötigt
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  # Browser merken sich: nur noch HTTPS (Voraussetzung: SSL-Zertifikat beim Hoster aktiv)
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Serverdetails nicht verraten
+  Header always unset X-Powered-By
+</IfModule>
+
+# ----- 6. Zeichensatz und Cache -----------------------------------
+AddDefaultCharset UTF-8
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+# ----- 7. Eigene Fehlerseite --------------------------------------
+ErrorDocument 404 /404.html

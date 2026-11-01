@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aktuelles – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Neuigkeiten und Berichte aus dem Imkerverein Herdecke-Ende: Vereinsleben, Saisonhinweise, Fachbeiträge und Naturschutz.">
@@ -10,10 +12,6 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <style>
-    /* Mehr-laden Schaltfläche */
-    .news-hidden { display: none; }
-  </style>
 </head>
 <body>
 
@@ -290,23 +288,6 @@
 
   <script src="js/nav.js"></script>
   <script src="js/scroll.js"></script>
-  <script>
-    /* Mehr laden – klappt die zweite Kachelreihe auf */
-    (function () {
-      const btn = document.getElementById('load-more-btn');
-      const grid = document.getElementById('news-grid-secondary');
-      if (!btn || !grid) return;
-      btn.addEventListener('click', function () {
-        grid.classList.remove('news-hidden');
-        grid.style.display = 'grid';
-        btn.style.display = 'none';
-        btn.setAttribute('aria-expanded', 'true');
-        /* Scroll-Reveal für nachgeladene Karten */
-        grid.querySelectorAll('.news-card').forEach(function (card) {
-          card.classList.add('reveal', 'revealed');
-        });
-      });
-    })();
-  </script>
+  <script src="js/news.js"></script>
 </body>
 </html>

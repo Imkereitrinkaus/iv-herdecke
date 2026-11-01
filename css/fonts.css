@@ -2,59 +2,12 @@
    Keine Verbindung zu Google-Servern – DSGVO-freundlich. */
 
 @font-face {
-  font-family: 'Lora';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/lora-latin-400-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lora';
+  font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200 800;
   font-display: swap;
-  src: url('../fonts/lora-latin-400-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/lora-latin-500-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/playfair-display-latin-400-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/playfair-display-latin-400-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../fonts/playfair-display-latin-600-normal.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/playfair-display-latin-700-normal.woff2') format('woff2');
+  src: url('../fonts/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2-variations'),
+       url('../fonts/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2');
 }
 
 @font-face {

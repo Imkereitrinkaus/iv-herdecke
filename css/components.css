@@ -154,6 +154,7 @@
   justify-content: center;
   font-size: 1.8rem;
   margin-bottom: var(--space-5);
+  border-radius: var(--radius-lg);
 }
 
 .feature-card__title {
@@ -1393,7 +1394,9 @@
    ================================================================ */
 
 .antrag-box {
-  background: linear-gradient(135deg, var(--color-honey), var(--color-amber));
+  background:
+    radial-gradient(circle at 90% 10%, rgba(242, 169, 0, 0.30), transparent 50%),
+    linear-gradient(135deg, var(--color-green-dark), var(--color-green));
   border-radius: var(--radius-xl);
   padding: var(--space-10) var(--space-12);
   display: grid;
@@ -1456,4 +1459,106 @@
 /* „Nächster Treff“ in dunklen Treff-Kästen gut lesbar halten */
 .treff-detail strong {
   color: var(--color-honey-light);
+}
+
+/* Schritt-Nummern („Mitglied werden“) */
+.step-number {
+  background: var(--color-honey);
+  min-width: 52px;
+}
+
+.step-number .termin-date__day {
+  color: var(--color-text-dark);
+  font-size: var(--fs-xl);
+}
+
+.step-number--done {
+  background: var(--color-green);
+}
+
+.termin-item--step {
+  border-left-color: var(--color-honey);
+}
+
+.termin-item--step-done {
+  border-left-color: var(--color-green);
+}
+
+/* Bildplatzhalter in Imkerei-Profilen */
+.profil-card__img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--color-cream-mid), var(--color-green-light));
+}
+
+.profil-card--empty {
+  border: 2px dashed var(--color-border);
+  box-shadow: none;
+  background: transparent;
+}
+
+.profil-card--empty .profil-card__img--placeholder {
+  background: var(--color-cream-warm);
+}
+
+.profil-card--empty .profil-card__tag {
+  background: transparent;
+  color: var(--color-text-light);
+}
+
+.profil-card--empty .profil-card__name {
+  color: var(--color-text-muted);
+}
+
+.profil-card--empty .profil-card__ort {
+  color: var(--color-text-light);
+}
+
+/* Button-Gruppe in hervorgehobenen Boxen */
+.btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+/* ----- Aktuelles: „Mehr laden“ (vorher Inline-Style) ----- */
+/* Mehr-laden Schaltfläche */
+.news-hidden { display: none; }
+
+/* ----- Termine-Seite (vorher Inline-Style) ----- */
+.termine-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+#termine-last-updated {
+  font-size: var(--fs-xs);
+  color: var(--color-text-light);
+}
+#termine-error {
+  display: none;
+  padding: var(--space-5) var(--space-6);
+  background-color: #fff8f8;
+  border: 1px solid #e5a0a0;
+  border-radius: var(--radius-md);
+  color: #8b2e2e;
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-6);
+}
+#termine-no-results {
+  display: none;
+  padding: var(--space-8) 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-md);
+}
+#termine-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }

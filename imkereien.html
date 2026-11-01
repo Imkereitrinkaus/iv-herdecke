@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imkereien – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Imkereien und Mitglieder des Imkervereins Herdecke-Ende: Bienenstandorte, Schwerpunkte und Kurzporträts aus der Region Herdecke und Ennepe-Ruhr.">
@@ -112,7 +114,7 @@
           <!-- Profil 1 -->
           <article class="profil-card reveal" aria-label="Imkerei Bergkamper Heide">
             <!-- Bildplatzhalter: images/imkerei-profil-1.jpg – Bienenstand im Grünen -->
-            <div class="profil-card__img" role="img" aria-label="Bienenstand der Imkerei am Waldrand" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--color-cream-mid),var(--color-green-light));">🌿</div>
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Bienenstand der Imkerei am Waldrand">🌿</div>
             <div class="profil-card__body">
               <span class="profil-card__tag">Hobbyimkerei</span>
               <h3 class="profil-card__name">Imkerei am Waldrand</h3>
@@ -128,7 +130,7 @@
           <!-- Profil 2 -->
           <article class="profil-card reveal reveal--delay-1" aria-label="Imkerei Streuobstwiese">
             <!-- Bildplatzhalter: images/imkerei-profil-2.jpg – Honiggläser und Wabenrahmen -->
-            <div class="profil-card__img" role="img" aria-label="Honiggläser und Wabenrahmen der Imkerei" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--color-cream-warm),var(--color-honey-light) 80%);">🍯</div>
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Honiggläser und Wabenrahmen der Imkerei">🍯</div>
             <div class="profil-card__body">
               <span class="profil-card__tag">Streuobst & Honig</span>
               <h3 class="profil-card__name">Imkerei Streuobstwiese</h3>
@@ -144,7 +146,7 @@
           <!-- Profil 3 -->
           <article class="profil-card reveal reveal--delay-2" aria-label="Imkerei Schrebergarten">
             <!-- Bildplatzhalter: images/imkerei-profil-3.jpg – Imker bei der Arbeit am Volk -->
-            <div class="profil-card__img" role="img" aria-label="Imker bei der Arbeit am Bienenvolk" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--color-green-light),var(--color-green-sage));">🧑‍🌾</div>
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Imker bei der Arbeit am Bienenvolk">🧑‍🌾</div>
             <div class="profil-card__body">
               <span class="profil-card__tag">Stadtimkerei</span>
               <h3 class="profil-card__name">Stadtimkerei Kirchender Höhen</h3>
@@ -159,7 +161,7 @@
 
           <!-- Profil 4 -->
           <article class="profil-card reveal" aria-label="Wanderimkerei Ruhrtal">
-            <div class="profil-card__img" role="img" aria-label="Bienenstand am Ruhrufer" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--color-cream-mid),var(--color-brown-light));">🚐</div>
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Bienenstand am Ruhrufer">🚐</div>
             <div class="profil-card__body">
               <span class="profil-card__tag">Wanderimkerei</span>
               <h3 class="profil-card__name">Ruhrtal-Imkerei</h3>
@@ -174,7 +176,7 @@
 
           <!-- Profil 5 -->
           <article class="profil-card reveal reveal--delay-1" aria-label="Bienenstandort Gärtnerei">
-            <div class="profil-card__img" role="img" aria-label="Bienenvölker auf dem Gärtnereigelände" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--color-green-light),var(--color-cream-mid));">🌷</div>
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Bienenvölker auf dem Gärtnereigelände">🌷</div>
             <div class="profil-card__body">
               <span class="profil-card__tag">Kooperationsstand</span>
               <h3 class="profil-card__name">Stand auf dem Gärtnereigelände</h3>
@@ -188,12 +190,12 @@
           </article>
 
           <!-- Profil 6 – Platzhalter für neue Einträge -->
-          <article class="profil-card reveal reveal--delay-2" style="border: 2px dashed var(--color-border); box-shadow: none; background: transparent;" aria-label="Platzhalter für weitere Imkereien">
-            <div class="profil-card__img" role="img" aria-label="Noch kein Bild vorhanden" style="display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--color-cream-warm);">➕</div>
+          <article class="profil-card profil-card--empty reveal reveal--delay-2" aria-label="Platzhalter für weitere Imkereien">
+            <div class="profil-card__img profil-card__img--placeholder" role="img" aria-label="Noch kein Bild vorhanden">➕</div>
             <div class="profil-card__body">
-              <span class="profil-card__tag" style="background: transparent; color: var(--color-text-light);">Ihre Imkerei</span>
-              <h3 class="profil-card__name" style="color: var(--color-text-muted);">Ihr Kurzporträt hier?</h3>
-              <p class="profil-card__ort" style="color: var(--color-text-light);"><span aria-hidden="true">📍</span> Herdecke und Umgebung</p>
+              <span class="profil-card__tag">Ihre Imkerei</span>
+              <h3 class="profil-card__name">Ihr Kurzporträt hier?</h3>
+              <p class="profil-card__ort"><span aria-hidden="true">📍</span> Herdecke und Umgebung</p>
               <p class="profil-card__text">
                 Mitglieder können ihre Imkerei auf dieser Seite vorstellen.
                 Sprechen Sie uns beim nächsten Imkertreff an oder nehmen Sie

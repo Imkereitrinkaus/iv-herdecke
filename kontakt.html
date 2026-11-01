@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Kontakt zum Imkerverein Herdecke-Ende e.V. – Schreiben Sie uns oder kommen Sie zum nächsten Imkertreff. Kirchender Dorfweg 12, 58313 Herdecke.">
@@ -97,17 +99,12 @@
 
             <div class="legal-content" style="padding: var(--space-8); margin-bottom: 0;">
               <p style="font-size: var(--fs-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">
-                Füllen Sie das Formular aus – wir melden uns so schnell wie möglich bei Ihnen.
+                Füllen Sie das Formular aus – beim Absenden öffnet sich Ihr E-Mail-Programm
+                mit der fertigen Nachricht. Wir melden uns so schnell wie möglich bei Ihnen.
                 Pflichtfelder sind mit einem Sternchen (<span style="color: var(--color-honey-dark);">*</span>) gekennzeichnet.
               </p>
 
-              <!--
-                  Versand einrichten (eine der beiden Möglichkeiten):
-                  • action="https://formspree.io/f/XXXX" method="post"  → Versand über Formular-Dienst
-                  • data-mailto="vorstand@beispiel.de"                   → öffnet das E-Mail-Programm
-                  Ohne Angabe zeigt das Formular einen Hinweis statt einer falschen Erfolgsmeldung.
-                -->
-                <form id="contact-form" novalidate aria-label="Kontaktformular" method="post">
+                <form id="contact-form" novalidate aria-label="Kontaktformular">
 
                 <!-- Name -->
                 <div class="form-group">
@@ -196,15 +193,10 @@
                 </div>
                 <span class="form-error" id="error-datenschutz" role="alert"></span>
 
-                <!-- Spam-Schutz: für Menschen unsichtbar -->
-                <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
-                  <label for="contact-website">Website (bitte leer lassen)</label>
-                  <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
-                </div>
 
                 <!-- Absenden -->
                 <button type="submit" class="btn btn--primary btn--lg" style="margin-top: var(--space-4);">
-                  Nachricht senden
+                  Nachricht im E-Mail-Programm öffnen
                 </button>
 
               </form>

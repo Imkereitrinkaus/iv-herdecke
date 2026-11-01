@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impressum – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Impressum des Imkervereins Herdecke-Ende e.V. – Angaben gemäß § 5 DDG.">
@@ -66,10 +68,10 @@
   <main id="main-content">
 
     <!-- SEITENHEADER (ohne Bild) -->
-    <div style="background: linear-gradient(135deg, var(--color-green-dark), var(--color-brown-dark)); padding: var(--space-16) 0 var(--space-12);">
+    <div class="page-header">
       <div class="container">
-        <span class="section-label" style="color: var(--color-honey-light);">Rechtliche Angaben</span>
-        <h1 style="font-family: var(--font-display); font-size: var(--fs-4xl); color: var(--color-cream); margin-top: var(--space-3);">Impressum</h1>
+        <span class="section-label">Rechtliche Angaben</span>
+        <h1 class="page-header__title">Impressum</h1>
       </div>
     </div>
 

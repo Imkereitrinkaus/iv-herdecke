@@ -7,33 +7,33 @@
 
 /* ----- CSS Custom Properties (Design-Tokens) ----- */
 :root {
-  /* Farben */
-  --color-honey:         #D4931A;
-  --color-honey-light:   #E8AC3A;
-  --color-honey-dark:    #B07912;
-  --color-amber:         #C17D0E;
-  --color-cream:         #FDF6E3;
-  --color-cream-warm:    #F8EDD0;
-  --color-cream-mid:     #F0E0B8;
-  --color-green-dark:    #2D4A2D;
-  --color-green:         #3D6B3D;
-  --color-green-sage:    #6B8F71;
-  --color-green-light:   #A8C5A0;
-  --color-brown-dark:    #5C3D1E;
-  --color-brown:         #8B5E3C;
-  --color-brown-light:   #C49A6C;
-  --color-text-dark:     #2A1F0E;
-  --color-text:          #3D2B10;
-  --color-text-muted:    #7A6245;
-  --color-text-light:    #A08060;
+  /* Farben – frisches Honiggelb, sattes Waldgrün, viel Weiß */
+  --color-honey:         #F2A900;
+  --color-honey-light:   #FFC83D;
+  --color-honey-dark:    #8A5D00;
+  --color-amber:         #E08E00;
+  --color-cream:         #FFFFFF;
+  --color-cream-warm:    #F5F8F2;
+  --color-cream-mid:     #FFF4D6;
+  --color-green-dark:    #14352A;
+  --color-green:         #1F6B4A;
+  --color-green-sage:    #5E9C7C;
+  --color-green-light:   #D3E8DA;
+  --color-brown-dark:    #0E261D;
+  --color-brown:         #2F5D48;
+  --color-brown-light:   #E9DFC4;
+  --color-text-dark:     #13201A;
+  --color-text:          #26342D;
+  --color-text-muted:    #56635C;
+  --color-text-light:    #6B7770;
   --color-white:         #FFFFFF;
-  --color-border:        #E5D5B0;
-  --color-border-light:  #F0E8D0;
+  --color-border:        #E1E7E2;
+  --color-border-light:  #EDF1EE;
 
   /* Typografie */
-  --font-display:  'Playfair Display', Georgia, serif;
-  --font-serif:    'Lora', Georgia, serif;
-  --font-sans:     'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-display:  'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-serif:    'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+  --font-sans:     'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
 
   /* Schriftgrößen (fluid) */
   --fs-xs:   0.75rem;
@@ -63,17 +63,17 @@
   --space-32: 8rem;
 
   /* Radien */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  16px;
-  --radius-xl:  24px;
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
   --radius-full: 9999px;
 
   /* Schatten */
-  --shadow-sm:  0 1px 3px rgba(42,31,14,0.08), 0 1px 2px rgba(42,31,14,0.06);
-  --shadow-md:  0 4px 12px rgba(42,31,14,0.12), 0 2px 6px rgba(42,31,14,0.08);
-  --shadow-lg:  0 10px 28px rgba(42,31,14,0.16), 0 4px 10px rgba(42,31,14,0.10);
-  --shadow-xl:  0 20px 48px rgba(42,31,14,0.18), 0 8px 16px rgba(42,31,14,0.12);
+  --shadow-sm:  0 1px 2px rgba(19,32,26,0.05), 0 1px 3px rgba(19,32,26,0.05);
+  --shadow-md:  0 6px 16px rgba(19,32,26,0.08), 0 2px 4px rgba(19,32,26,0.04);
+  --shadow-lg:  0 14px 32px rgba(19,32,26,0.10), 0 4px 8px rgba(19,32,26,0.05);
+  --shadow-xl:  0 24px 56px rgba(19,32,26,0.14), 0 8px 16px rgba(19,32,26,0.06);
 
   /* Übergänge */
   --transition-fast:   150ms ease;
@@ -155,8 +155,9 @@ select {
 /* ----- Typografie-Grundregeln ----- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   color: var(--color-text-dark);
 }
 
@@ -178,7 +179,7 @@ p:last-child {
 
 strong {
   font-weight: 600;
-  color: var(--color-brown-dark);
+  color: var(--color-text-dark);
 }
 
 /* ----- Hilfsklassen ----- */
@@ -225,9 +226,9 @@ strong {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-honey);
+  color: var(--color-green);
   margin-bottom: var(--space-3);
 }
 
@@ -269,8 +270,8 @@ strong {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-md);
-  font-family: var(--font-sans);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
   font-size: var(--fs-base);
   font-weight: 600;
   text-decoration: none;
@@ -287,14 +288,14 @@ strong {
 
 .btn--primary {
   background-color: var(--color-honey);
-  color: var(--color-white);
+  color: var(--color-text-dark);
   border-color: var(--color-honey);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-honey-dark);
-  border-color: var(--color-honey-dark);
-  color: var(--color-white);
+  background-color: var(--color-honey-light);
+  border-color: var(--color-honey-light);
+  color: var(--color-text-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -314,8 +315,8 @@ strong {
 
 .btn--outline-light {
   background-color: transparent;
-  color: var(--color-cream);
-  border-color: rgba(253,246,227,0.6);
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.6);
 }
 
 .btn--outline-light:hover {
@@ -366,7 +367,7 @@ strong {
   z-index: 1000;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(253, 246, 227, 0.95);
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-light);
@@ -375,7 +376,7 @@ strong {
 
 .site-header.scrolled {
   box-shadow: var(--shadow-md);
-  background-color: rgba(253, 246, 227, 0.98);
+  background-color: rgba(255, 255, 255, 0.98);
 }
 
 .header-inner {
@@ -749,12 +750,19 @@ strong {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(45, 74, 45, 0.75) 0%,
-    rgba(92, 61, 30, 0.50) 60%,
-    rgba(45, 74, 45, 0.40) 100%
-  );
+  background:
+    radial-gradient(circle at 85% 20%, rgba(242, 169, 0, 0.28), transparent 45%),
+    linear-gradient(135deg, rgba(20, 53, 42, 0.92) 0%, rgba(31, 107, 74, 0.70) 100%);
+}
+
+/* Dezentes Wabenmuster im Hero */
+.hero__overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 56 98'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 32L0 82V66l28 16 28-16v16L28 98z' fill='none' stroke='%23ffffff' stroke-opacity='0.07' stroke-width='1.5'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(90deg, transparent 20%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 20%, #000 100%);
 }
 
 .hero__content {
@@ -769,10 +777,13 @@ strong {
   display: inline-block;
   font-size: var(--fs-xs);
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-honey-light);
-  margin-bottom: var(--space-4);
+  color: var(--color-text-dark);
+  background-color: var(--color-honey-light);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-5);
   opacity: 0;
   transform: translateY(16px);
   animation: fadeUp 0.6s ease 0.2s forwards;
@@ -792,14 +803,14 @@ strong {
 }
 
 .hero__title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-honey-light);
 }
 
 .hero__sub {
   font-family: var(--font-serif);
   font-size: var(--fs-md);
-  color: rgba(253,246,227,0.85);
+  color: rgba(255,255,255,0.88);
   max-width: 52ch;
   line-height: 1.8;
   margin-bottom: var(--space-10);
@@ -958,4 +969,23 @@ strong {
 
 .info-split__image--placeholder::after {
   content: "🐝";
+}
+
+/* Seitenkopf ohne Bild (Impressum, Datenschutz) */
+.page-header {
+  position: relative;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(242, 169, 0, 0.25), transparent 45%),
+    linear-gradient(135deg, var(--color-green-dark), var(--color-green));
+  padding: var(--space-16) 0 var(--space-12);
+}
+
+.page-header .section-label {
+  color: var(--color-honey-light);
+}
+
+.page-header__title {
+  font-size: var(--fs-4xl);
+  color: var(--color-white);
+  margin-top: var(--space-3);
 }

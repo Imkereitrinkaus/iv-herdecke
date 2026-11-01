@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mitglied werden – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Werden Sie Mitglied im Imkerverein Herdecke-Ende e.V. – offen für Einsteiger und Erfahrene. Gemeinschaft, Fachkompetenz und Unterstützung für Ihre Imkerei.">
@@ -220,9 +222,9 @@
         </div>
 
         <div class="termine-list" style="gap: var(--space-5);">
-          <div class="termin-item reveal" style="border-left-color: var(--color-honey);">
-            <div class="termin-date" style="background: linear-gradient(135deg,var(--color-honey),var(--color-amber)); color: white; min-width: 52px;">
-              <span class="termin-date__day" style="color: white; font-size: var(--fs-xl);">1</span>
+          <div class="termin-item termin-item--step reveal">
+            <div class="termin-date step-number">
+              <span class="termin-date__day">1</span>
             </div>
             <div class="termin-info">
               <h3 class="termin-info__title">Einfach vorbeikommen</h3>
@@ -233,9 +235,9 @@
               </p>
             </div>
           </div>
-          <div class="termin-item reveal" style="border-left-color: var(--color-honey);">
-            <div class="termin-date" style="background: linear-gradient(135deg,var(--color-honey),var(--color-amber)); min-width: 52px;">
-              <span class="termin-date__day" style="color: white; font-size: var(--fs-xl);">2</span>
+          <div class="termin-item termin-item--step reveal">
+            <div class="termin-date step-number">
+              <span class="termin-date__day">2</span>
             </div>
             <div class="termin-info">
               <h3 class="termin-info__title">Kontakt aufnehmen</h3>
@@ -246,9 +248,9 @@
               </p>
             </div>
           </div>
-          <div class="termin-item reveal" style="border-left-color: var(--color-honey);">
-            <div class="termin-date" style="background: linear-gradient(135deg,var(--color-honey),var(--color-amber)); min-width: 52px;">
-              <span class="termin-date__day" style="color: white; font-size: var(--fs-xl);">3</span>
+          <div class="termin-item termin-item--step reveal">
+            <div class="termin-date step-number">
+              <span class="termin-date__day">3</span>
             </div>
             <div class="termin-info">
               <h3 class="termin-info__title">Mitgliedsantrag ausfüllen</h3>
@@ -259,9 +261,9 @@
               </p>
             </div>
           </div>
-          <div class="termin-item reveal" style="border-left-color: var(--color-green);">
-            <div class="termin-date" style="background: linear-gradient(135deg,var(--color-green-dark),var(--color-green)); min-width: 52px;">
-              <span class="termin-date__day" style="color: white; font-size: var(--fs-xl);">🐝</span>
+          <div class="termin-item termin-item--step-done reveal">
+            <div class="termin-date step-number step-number--done">
+              <span class="termin-date__day">🐝</span>
             </div>
             <div class="termin-info">
               <h3 class="termin-info__title">Willkommen im Verein!</h3>
@@ -288,12 +290,11 @@
               Bei Fragen helfen wir gerne weiter.
             </p>
           </div>
-          <div style="display: flex; flex-direction: column; gap: var(--space-4); flex-shrink: 0;">
+          <div class="btn-stack">
             <!-- PDF-Platzhalter – Datei wird vom Verein bereitgestellt -->
             <a
               href="mitgliedsantrag.pdf"
-              class="btn btn--secondary"
-              style="background: white; color: var(--color-honey-dark); border-color: white;"
+              class="btn btn--primary"
               aria-label="Mitgliedsantrag als PDF herunterladen"
               download
             >
@@ -302,7 +303,6 @@
             <a
               href="kontakt.html"
               class="btn btn--outline-light"
-              style="border-color: rgba(255,255,255,0.5); color: white;"
             >
               Fragen? Schreiben Sie uns
             </a>
