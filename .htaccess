@@ -5,67 +5,75 @@
 #  all-inkl, Hetzner Webhosting).
 #  Die Website ist rein statisch (HTML/CSS/JS) – sie braucht weder
 #  PHP noch eine Datenbank. Genau das macht sie schwer angreifbar.
+#
+#  NEXTCLOUD AUF DEMSELBEN WEBSPACE:
+#  Die Regeln unten greifen NICHT für die Nextcloud, damit sie
+#  ungestört weiterläuft. Erkannt wird sie an
+#    – einem Unterordner  /nextcloud/, /cloud/ oder /owncloud/  bzw.
+#    – einer Subdomain   cloud.…  oder  nextcloud.…
+#  Heißt der Ordner oder die Subdomain anders, den Namen bitte an den
+#  zwei Stellen ergänzen, die mit  [NEXTCLOUD]  markiert sind.
+#  Am saubersten: Website und Nextcloud in getrennten Ordnern
+#  NEBENEINANDER (nicht ineinander) ablegen.
 # =================================================================
 
-# ----- 1. Immer verschlüsselt (HTTPS) -----------------------------
+# ----- 1. Grundeinstellungen ---------------------------------------
+Options -Indexes
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Immer verschlüsselt (HTTPS) – gilt auch für die Nextcloud
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Ab hier: nur für die Website, nicht für die Nextcloud   [NEXTCLOUD]
+  RewriteCond %{HTTP_HOST} ^(cloud|nextcloud)\. [NC]
+  RewriteRule ^ - [S=3]
+  RewriteCond %{REQUEST_URI} ^/(nextcloud|cloud|owncloud)(/|$) [NC]
+  RewriteRule ^ - [S=2]
+
+  # Versteckte Dateien sperren (.git, .env …), außer .well-known
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
+
+  # Keine Skripte ausführen und keine Backup-/Konfigurationsdateien
+  # ausliefern. Falls jemand mit gestohlenen Zugangsdaten z. B. eine
+  # PHP-Datei hochlädt, wird sie nicht ausgeführt, sondern blockiert.
+  RewriteRule \.(php[0-9]?|phtml|phar|pl|py|cgi|sh|asp|aspx|jsp|bak|old|orig|swp|sql|log|ini|conf|md|yml|yaml)$|~$ - [F,L,NC]
 </IfModule>
 
-# ----- 2. Keine Verzeichnis-Auflistung ----------------------------
-Options -Indexes
-
-# ----- 3. Versteckte Dateien sperren (.git, .htaccess, .env …) ----
-<IfModule mod_rewrite.c>
-  RewriteRule (^|/)\.(?!well-known/) - [F,L]
-</IfModule>
-
-# ----- 4. Keine Skripte ausführen ---------------------------------
-# Falls Angreifer über gestohlene Zugangsdaten z. B. eine PHP-Datei
-# hochladen, wird sie nicht ausgeführt, sondern blockiert.
-<FilesMatch "\.(php[0-9]?|phtml|phar|pl|py|cgi|sh|asp|aspx|jsp)$">
-  Require all denied
-</FilesMatch>
-
-# Sicherungs- und Konfigurationsdateien sperren
-<FilesMatch "\.(bak|old|orig|swp|sql|log|ini|conf|md|yml|yaml)$|~$">
-  Require all denied
-</FilesMatch>
-
-# ----- 5. Sicherheits-Header --------------------------------------
+# ----- 2. Sicherheits-Header (nur Website)          [NEXTCLOUD] ----
 <IfModule mod_headers.c>
-  # Erlaubt nur Inhalte vom eigenen Server (Schutz vor eingeschleustem Code)
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; frame-ancestors 'none'"
-  # Seite darf nicht in fremde Seiten eingebettet werden (Clickjacking)
-  Header always set X-Frame-Options "DENY"
-  # Browser soll Dateitypen nicht raten
-  Header always set X-Content-Type-Options "nosniff"
-  # Beim Klick auf externe Links nur die Domain weitergeben
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  # Kamera, Mikrofon, Standort usw. werden nicht benötigt
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
-  # Browser merken sich: nur noch HTTPS (Voraussetzung: SSL-Zertifikat beim Hoster aktiv)
+  <If "! (%{HTTP_HOST} =~ /^(cloud|nextcloud)\./i || %{REQUEST_URI} =~ m#^/(nextcloud|cloud|owncloud)(/|$)#i)">
+    # Erlaubt nur Inhalte vom eigenen Server (Schutz vor eingeschleustem Code)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; frame-ancestors 'none'"
+    # Seite darf nicht in fremde Seiten eingebettet werden (Clickjacking)
+    Header always set X-Frame-Options "DENY"
+    # Browser soll Dateitypen nicht raten
+    Header always set X-Content-Type-Options "nosniff"
+    # Beim Klick auf externe Links nur die Domain weitergeben
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Kamera, Mikrofon, Standort usw. werden nicht benötigt
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  </If>
+  # Browser merken sich: nur noch HTTPS (Voraussetzung: SSL-Zertifikat
+  # beim Hoster aktiv). Gilt für die ganze Domain inkl. Nextcloud.
   Header always set Strict-Transport-Security "max-age=31536000"
-  # Serverdetails nicht verraten
-  Header always unset X-Powered-By
 </IfModule>
 
-# ----- 6. Zeichensatz und Cache -----------------------------------
-AddDefaultCharset UTF-8
+# ----- 3. Cache --------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
   ExpiresByType application/json "access plus 0 seconds"
   ExpiresByType text/css "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType image/jpeg "access plus 30 days"
   ExpiresByType image/png "access plus 30 days"
   ExpiresByType image/svg+xml "access plus 30 days"
 </IfModule>
-
-# ----- 7. Eigene Fehlerseite --------------------------------------
-ErrorDocument 404 /404.html
