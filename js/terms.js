@@ -2,7 +2,7 @@
  * terms.js – Imkerverein Herdecke-Ende e.V.
  * Lädt Termine aus data/termine.json per fetch().
  * – Erster Ladevorgang beim Seitenaufruf
- * – Automatische Aktualisierung alle 60 Sekunden
+ * – Automatische Aktualisierung, wenn der Tab wieder aktiv wird
  * – Manuelles Neu-Laden per Button
  * – No-Cache-Strategie beim Fetch
  * – Idempotentes Rendering, Filterzustand bleibt erhalten
@@ -13,12 +13,10 @@
   'use strict';
 
   var FETCH_URL        = 'data/termine.json';
-  var REFRESH_INTERVAL = 60000;
 
   var allTermine   = [];
   var activeFilter = 'alle';
   var lastRawJSON  = '';
-  var refreshTimer = null;
 
   var listContainer = document.getElementById('termine-container');
   var noResultsEl   = document.getElementById('termine-no-results');
@@ -32,11 +30,16 @@
      Sichtbar: Veranstaltungstag + 2 weitere Kalendertage.
      Beispiel: 10.05. → sichtbar 10., 11., 12.05. Ab 13.05. hidden.
   ---------------------------------------------------------------- */
+  /* "YYYY-MM-DD" als lokales Datum lesen (new Date("YYYY-MM-DD") wäre UTC) */
+  function parseDatum(datum) {
+    var p = String(datum).split('-');
+    return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+  }
+
   function isVisible(datum) {
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var termDate = new Date(datum);
-    termDate.setHours(0, 0, 0, 0);
+    var termDate = parseDatum(datum);
     var cutoff = new Date(termDate);
     cutoff.setDate(cutoff.getDate() + 2);
     return cutoff >= today;
@@ -139,7 +142,7 @@
   ---------------------------------------------------------------- */
   function render(data) {
     var sichtbar = data.filter(function (t) { return isVisible(t.datum); });
-    sichtbar.sort(function (a, b) { return new Date(a.datum) - new Date(b.datum); });
+    sichtbar.sort(function (a, b) { return parseDatum(a.datum) - parseDatum(b.datum); });
 
     listContainer.innerHTML = '';
 
@@ -225,11 +228,13 @@
   }
 
   /* ----------------------------------------------------------------
-     Auto-Refresh
+     Auto-Refresh: neu laden, wenn der Tab wieder sichtbar wird
+     (statt ständigem Abfragen im Hintergrund)
   ---------------------------------------------------------------- */
   function startAutoRefresh() {
-    if (refreshTimer) { clearInterval(refreshTimer); }
-    refreshTimer = setInterval(function () { fetchTermine(false); }, REFRESH_INTERVAL);
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') { fetchTermine(false); }
+    });
   }
 
   /* ----------------------------------------------------------------

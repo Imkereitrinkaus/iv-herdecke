@@ -78,7 +78,7 @@
     const isCheckbox = input.type === 'checkbox';
 
     input.addEventListener(isCheckbox ? 'change' : 'blur', () => {
-      const val = isCheckbox ? input.value : input.value;
+      const val = input.value;
       const errorMsg = validate(val, input);
       if (errorMsg) {
         showError(input, error, errorMsg);
@@ -98,6 +98,71 @@
     }
   });
 
+  /* ----- Versand und Rückmeldungen ----- */
+  const errorBox = document.getElementById('form-error');
+  const submitBtn = form.querySelector('[type="submit"]');
+  const submitLabel = submitBtn ? submitBtn.textContent.trim() : '';
+
+  const setSending = (sending) => {
+    if (!submitBtn) return;
+    submitBtn.disabled = sending;
+    submitBtn.textContent = sending ? 'Wird gesendet …' : submitLabel;
+  };
+
+  const showFormError = (message) => {
+    if (successMsg) successMsg.classList.remove('visible');
+    if (!errorBox) return;
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+    errorBox.focus();
+  };
+
+  const showSuccess = (message) => {
+    if (errorBox) errorBox.hidden = true;
+    if (!successMsg) return;
+    const text = successMsg.querySelector('[data-success-text]');
+    if (text && message) text.textContent = message;
+    successMsg.classList.add('visible');
+    successMsg.focus();
+  };
+
+  const sendViaFetch = (url) => {
+    setSending(true);
+    fetch(url, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        form.reset();
+        showSuccess();
+      })
+      .catch(() => {
+        showFormError(
+          'Ihre Nachricht konnte leider nicht gesendet werden. ' +
+          'Bitte versuchen Sie es später erneut oder sprechen Sie uns beim Imkertreff an.'
+        );
+      })
+      .finally(() => setSending(false));
+  };
+
+  const sendViaMailto = (address) => {
+    const get = (sel) => (form.querySelector(sel)?.value || '').trim();
+    const betreff = get('#contact-betreff') || 'Anfrage über die Website';
+    const body =
+      get('#contact-message') + '\n\n' +
+      '— ' + get('#contact-name') + ' (' + get('#contact-email') + ')';
+    window.location.href =
+      'mailto:' + address +
+      '?subject=' + encodeURIComponent(betreff) +
+      '&body=' + encodeURIComponent(body);
+    showSuccess(
+      'Ihr E-Mail-Programm wurde mit der vorbereiteten Nachricht geöffnet. ' +
+      'Bitte senden Sie die E-Mail dort ab.'
+    );
+  };
+
   /* ----- Formular absenden ----- */
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -106,7 +171,7 @@
 
     Object.values(fields).forEach(({ input, error, validate }) => {
       if (!input || !error) return;
-      const val = input.type === 'checkbox' ? input.value : input.value;
+      const val = input.value;
       const errorMsg = validate(val, input);
       if (errorMsg) {
         showError(input, error, errorMsg);
@@ -124,36 +189,32 @@
     }
 
     /* ---- Formular gilt als gültig ----
-       Da dies eine statische Website ohne Backend ist,
-       wird lediglich eine Erfolgsmeldung angezeigt.
-       In der Praxis würde hier ein fetch() / fetch-API-Aufruf stattfinden. */
+       Versandweg wird im HTML am <form> konfiguriert:
+       1. action="https://…"   → Versand per fetch() an einen Formular-Dienst
+                                  (z. B. Formspree) oder ein eigenes Skript
+       2. data-mailto="…@…"    → öffnet das E-Mail-Programm mit vorausgefüllter Nachricht
+       3. nichts gesetzt       → ehrlicher Hinweis statt einer falschen Erfolgsmeldung */
 
-    const submitBtn = form.querySelector('[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Wird gesendet …';
+    /* Spam-Schutz: verstecktes Feld darf nicht ausgefüllt sein */
+    const honeypot = form.querySelector('[name="website"]');
+    if (honeypot && honeypot.value) {
+      showSuccess();
+      return;
     }
 
-    /* Simuliertes Senden mit kurzem Delay */
-    setTimeout(() => {
-      form.reset();
+    const action = (form.getAttribute('action') || '').trim();
+    const mailto = (form.dataset.mailto || '').trim();
 
-      if (successMsg) {
-        successMsg.classList.add('visible');
-        successMsg.focus();
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Nachricht senden';
-      }
-
-      /* Erfolgsmeldung nach 8 Sekunden automatisch ausblenden */
-      setTimeout(() => {
-        if (successMsg) successMsg.classList.remove('visible');
-      }, 8000);
-
-    }, 800);
+    if (action) {
+      sendViaFetch(action);
+    } else if (mailto) {
+      sendViaMailto(mailto);
+    } else {
+      showFormError(
+        'Das Kontaktformular ist derzeit noch nicht freigeschaltet. ' +
+        'Bitte sprechen Sie uns beim nächsten Imkertreff an.'
+      );
+    }
   });
 
 })();

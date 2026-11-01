@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imkerverein Herdecke-Ende e.V. – Seit 1926 für Bienen und Imkerei</title>
   <meta name="description" content="Der Imkerverein Herdecke-Ende e.V. vereint seit 1926 Imkerinnen und Imker aus der Region. Monatliche Treffen, Fachwissen und Gemeinschaft – offen für Einsteiger und Erfahrene.">
-  <link rel="canonical" href="index.html">
-  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
@@ -135,6 +134,10 @@
             <span class="treff-highlight__label">Regelmäßiger Treff</span>
             <h2 class="treff-highlight__title" id="treff-heading">Imkertreff</h2>
             <div class="treff-highlight__details">
+              <div class="treff-detail" data-next-treff hidden>
+                <span class="treff-detail__icon" aria-hidden="true">🔔</span>
+                <span><strong>Nächster Treff:</strong> <span data-next-treff-text></span></span>
+              </div>
               <div class="treff-detail">
                 <span class="treff-detail__icon" aria-hidden="true">📅</span>
                 <span>Jeden zweiten Dienstag im Monat, 19:00 Uhr</span>
@@ -163,7 +166,7 @@
     <!-- VERTRAUEN -->
     <section class="section" aria-labelledby="vertrauen-heading">
       <div class="container container--narrow text-center">
-        <span class="section-label">Seit fast 100 Jahren</span>
+        <span class="section-label">Seit 100 Jahren</span>
         <h2 class="section-title" id="vertrauen-heading">Regional verwurzelt, offen für alle</h2>
         <p class="section-intro" style="margin: 0 auto var(--space-6);">
           102 Mitglieder betreuen gemeinsam rund 600 Bienenvölker in Herdecke und Umgebung.
@@ -232,7 +235,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-bottom__copy">&copy; 2025 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
         <nav class="footer-bottom__links" aria-label="Rechtliche Links">
           <a href="impressum.html" class="footer-bottom__link">Impressum</a>
           <a href="datenschutz.html" class="footer-bottom__link">Datenschutz</a>
@@ -244,5 +247,6 @@
 
   <script src="js/nav.js"></script>
   <script src="js/scroll.js"></script>
+  <script src="js/next-treff.js"></script>
 </body>
 </html>

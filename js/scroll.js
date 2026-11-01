@@ -40,7 +40,10 @@
   ---------------------------------------------------------------- */
   const heroBg = document.querySelector('.hero__bg');
 
-  if (heroBg) {
+  const reducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroBg && !reducedMotion) {
     const hero = document.querySelector('.hero');
     if (hero) {
       hero.classList.add('in-view');

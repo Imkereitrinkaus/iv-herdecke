@@ -52,6 +52,7 @@
   if (!lightbox) return;
 
   let currentIndex = 0;
+  let lastFocused = null; // Fokus nach dem Schließen zurückgeben
   /* Nur aktuell sichtbare Items */
   const getVisibleItems = () =>
     Array.from(galleryItems).filter((el) => el.style.display !== 'none');
@@ -84,6 +85,9 @@
       lightboxCounter.textContent = `${currentIndex + 1} / ${visible.length}`;
     }
 
+    if (!lightbox.classList.contains('is-open')) {
+      lastFocused = document.activeElement;
+    }
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -96,6 +100,9 @@
     lightbox.classList.remove('is-open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
   };
 
   const showPrev = () => {

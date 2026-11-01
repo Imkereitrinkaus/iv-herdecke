@@ -39,6 +39,8 @@
       mobileNav.classList.add('is-open');
       hamburger.setAttribute('aria-expanded', 'true');
       hamburger.setAttribute('aria-label', 'Menü schließen');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      mobileNav.inert = false;
       document.body.style.overflow = 'hidden'; // Scroll-Lock
     };
 
@@ -47,8 +49,13 @@
       mobileNav.classList.remove('is-open');
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.setAttribute('aria-label', 'Menü öffnen');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      mobileNav.inert = true;
       document.body.style.overflow = '';
     };
+
+    /* Geschlossenes Menü ist für Tastatur und Screenreader nicht erreichbar */
+    mobileNav.inert = true;
 
     const toggleMenu = () => {
       if (hamburger.classList.contains('is-active')) {
@@ -118,5 +125,42 @@
 
   markActive(navLinks);
   markActive(mobileLinks);
+
+  /* ----------------------------------------------------------------
+     4. BILD-FALLBACK
+     Fehlt eine Bilddatei, wird statt des „kaputten Bildes“ ein
+     Platzhalter angezeigt. Sobald die Datei im Ordner images/ liegt,
+     erscheint automatisch das echte Bild.
+  ---------------------------------------------------------------- */
+  const handleMissingImage = (img) => {
+    const galleryItem = img.closest('.gallery-item');
+    if (galleryItem) {
+      const emoji = galleryItem.dataset.emoji || '🐝';
+      const ph = document.createElement('span');
+      ph.setAttribute('aria-hidden', 'true');
+      ph.textContent = emoji;
+      img.replaceWith(ph);
+      galleryItem.classList.add('gallery-item--placeholder');
+      galleryItem.dataset.src = '';
+      return;
+    }
+
+    const splitImage = img.closest('.info-split__image');
+    if (splitImage) {
+      img.classList.add('img-missing');
+      splitImage.classList.add('info-split__image--placeholder');
+      return;
+    }
+
+    img.classList.add('img-missing');
+  };
+
+  document.querySelectorAll('main img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      handleMissingImage(img);
+    } else {
+      img.addEventListener('error', () => handleMissingImage(img), { once: true });
+    }
+  });
 
 })();

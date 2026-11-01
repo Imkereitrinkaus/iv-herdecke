@@ -3,8 +3,7 @@
    Basis-Styles, CSS-Variablen, Header, Footer, Typografie
    ============================================================= */
 
-/* ----- Google Fonts Import ----- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+/* ----- Schriften: lokal eingebunden über css/fonts.css ----- */
 
 /* ----- CSS Custom Properties (Design-Tokens) ----- */
 :root {
@@ -552,11 +551,15 @@ strong {
   overflow-y: auto;
   padding: var(--space-6);
   transform: translateX(100%);
-  transition: transform var(--transition-slow);
+  /* visibility verhindert, dass geschlossene Links per Tab erreichbar sind */
+  visibility: hidden;
+  transition: transform var(--transition-slow), visibility 0s linear 0.4s;
 }
 
 .mobile-nav.is-open {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform var(--transition-slow), visibility 0s;
 }
 
 .mobile-nav__list {
@@ -757,7 +760,9 @@ strong {
 .hero__content {
   position: relative;
   z-index: 2;
-  padding: var(--space-32) 0;
+  /* Nur vertikal – horizontales Padding kommt von .container */
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
 }
 
 .hero__label {
@@ -817,7 +822,8 @@ strong {
 }
 
 .hero--subpage .hero__content {
-  padding: var(--space-20) 0;
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
 }
 
 /* ================================================================
@@ -903,4 +909,53 @@ strong {
   font-size: var(--fs-sm);
   color: var(--color-text-dark);
   font-weight: 500;
+}
+
+/* ================================================================
+   SKIP-LINK (Barrierefreiheit)
+   ================================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 2000;
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-honey);
+  color: var(--color-white);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ================================================================
+   BILD-FALLBACK (wenn eine Bilddatei fehlt)
+   ================================================================ */
+
+.img-missing {
+  display: none !important;
+}
+
+/* hidden-Attribut auch bei Elementen mit eigenem display-Wert respektieren */
+[hidden] {
+  display: none !important;
+}
+
+/* Platzhalter für fehlende Bilder in Bild-Text-Blöcken */
+.info-split__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-cream-mid), var(--color-green-light));
+  font-size: 4rem;
+}
+
+.info-split__image--placeholder::after {
+  content: "🐝";
 }

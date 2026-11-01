@@ -1441,3 +1441,19 @@
   color: var(--color-text-muted);
   font-weight: 600;
 }
+
+/* Fehlermeldung beim Formularversand */
+.form-send-error {
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  background-color: #fff8f8;
+  border: 1px solid #e5a0a0;
+  border-radius: var(--radius-md);
+  color: #8b2e2e;
+  font-size: var(--fs-sm);
+}
+
+/* „Nächster Treff“ in dunklen Treff-Kästen gut lesbar halten */
+.treff-detail strong {
+  color: var(--color-honey-light);
+}

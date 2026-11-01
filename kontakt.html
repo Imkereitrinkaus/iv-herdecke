@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Imkerverein Herdecke-Ende e.V.</title>
   <meta name="description" content="Kontakt zum Imkerverein Herdecke-Ende e.V. – Schreiben Sie uns oder kommen Sie zum nächsten Imkertreff. Kirchender Dorfweg 12, 58313 Herdecke.">
-  <link rel="canonical" href="kontakt.html">
-  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
   <!-- HEADER -->
   <header class="site-header" role="banner">
@@ -102,7 +101,13 @@
                 Pflichtfelder sind mit einem Sternchen (<span style="color: var(--color-honey-dark);">*</span>) gekennzeichnet.
               </p>
 
-              <form id="contact-form" novalidate aria-label="Kontaktformular">
+              <!--
+                  Versand einrichten (eine der beiden Möglichkeiten):
+                  • action="https://formspree.io/f/XXXX" method="post"  → Versand über Formular-Dienst
+                  • data-mailto="vorstand@beispiel.de"                   → öffnet das E-Mail-Programm
+                  Ohne Angabe zeigt das Formular einen Hinweis statt einer falschen Erfolgsmeldung.
+                -->
+                <form id="contact-form" novalidate aria-label="Kontaktformular" method="post">
 
                 <!-- Name -->
                 <div class="form-group">
@@ -191,6 +196,12 @@
                 </div>
                 <span class="form-error" id="error-datenschutz" role="alert"></span>
 
+                <!-- Spam-Schutz: für Menschen unsichtbar -->
+                <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+                  <label for="contact-website">Website (bitte leer lassen)</label>
+                  <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <!-- Absenden -->
                 <button type="submit" class="btn btn--primary btn--lg" style="margin-top: var(--space-4);">
                   Nachricht senden
@@ -207,8 +218,11 @@
                 tabindex="-1"
               >
                 <span aria-hidden="true">✅</span>
-                Vielen Dank für Ihre Nachricht! Wir werden uns so bald wie möglich bei Ihnen melden.
+                <span data-success-text>Vielen Dank für Ihre Nachricht! Wir werden uns so bald wie möglich bei Ihnen melden.</span>
               </div>
+
+              <!-- Fehler-/Hinweismeldung beim Versand -->
+              <div class="form-send-error" id="form-error" role="alert" tabindex="-1" hidden></div>
 
               <p class="form-hint" style="margin-top: var(--space-6);">
                 Alternativ können Sie uns auch direkt beim nächsten Imkertreff ansprechen –
@@ -277,6 +291,11 @@
                 <span class="map-placeholder__text">Sportlertreff Herdecke-Ende</span>
                 <span class="map-placeholder__addr">Kirchender Dorfweg 12<br>58313 Herdecke</span>
               </div>
+              <p style="margin-top: var(--space-3);">
+                <a href="https://www.openstreetmap.org/search?query=Kirchender%20Dorfweg%2012%2C%2058313%20Herdecke" target="_blank" rel="noopener noreferrer" class="card__link">
+                  Auf der Karte anzeigen (OpenStreetMap) <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </p>
               <p style="font-size: var(--fs-xs); color: var(--color-text-light); margin-top: var(--space-3);">
                 Zur Anfahrt empfehlen wir die Eingabe der Adresse
                 in ein Navigationssystem Ihrer Wahl.
@@ -307,6 +326,10 @@
             <span class="treff-highlight__label">Kein Formular nötig</span>
             <h2 class="treff-highlight__title" id="treff-kontakt-heading">Einfach vorbeikommen</h2>
             <div class="treff-highlight__details">
+              <div class="treff-detail" data-next-treff hidden>
+                <span class="treff-detail__icon" aria-hidden="true">🔔</span>
+                <span><strong>Nächster Treff:</strong> <span data-next-treff-text></span></span>
+              </div>
               <div class="treff-detail">
                 <span class="treff-detail__icon" aria-hidden="true">📅</span>
                 <span>Jeden zweiten Dienstag im Monat, 19:00 Uhr</span>
@@ -378,7 +401,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-bottom__copy">&copy; 2025 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom__copy">&copy; 2026 Imkerverein Herdecke-Ende e.V. – Alle Rechte vorbehalten.</p>
         <nav class="footer-bottom__links" aria-label="Rechtliche Links">
           <a href="impressum.html" class="footer-bottom__link">Impressum</a>
           <a href="datenschutz.html" class="footer-bottom__link">Datenschutz</a>
@@ -390,6 +413,7 @@
 
   <script src="js/nav.js"></script>
   <script src="js/scroll.js"></script>
+  <script src="js/next-treff.js"></script>
   <script src="js/form.js"></script>
 </body>
 </html>
